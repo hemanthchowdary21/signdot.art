@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#244bff">
+    <meta name="description" content="SignDot Terms of Service — Read the terms governing our custom signature and calligraphy services.">
+    <title>Terms of Service — SignDot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #244bff;
+            --ink: #171717;
+            --paper: #f6f4ed;
+            --lime: #d7ff58;
+            --pink: #ff8ecb;
+            --line: #d9d7cf;
+            --muted: #696961;
+            --card-bg: #ffffff;
+            --max: 820px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .mono {
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* Top Header */
+        .site-header {
+            border-bottom: 1px solid var(--line);
+            background: rgba(246, 244, 237, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: var(--blue);
+        }
+
+        .brand sup {
+            font-size: 9px;
+            font-family: 'DM Mono', monospace;
+            top: -0.6em;
+            margin-left: 2px;
+        }
+
+        .back-link {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #fff;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--paper);
+            text-decoration: none;
+            transform: translateX(-2px);
+        }
+
+        /* Content Container */
+        .legal-container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* Hero */
+        .legal-hero {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .legal-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legal-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+
+        .legal-title {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 850;
+            letter-spacing: -0.045em;
+            line-height: 1.05;
+            margin: 0 0 16px;
+            color: var(--ink);
+        }
+
+        .legal-meta {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.02em;
+        }
+
+        .intro-box {
+            background: #fff;
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin: 28px 0 44px;
+            box-shadow: 4px 4px 0 var(--ink);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .intro-box p {
+            margin: 0 0 12px;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+            color: #b33a3a;
+            font-weight: 600;
+        }
+
+        /* Sections */
+        .terms-section {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .terms-section:hover {
+            border-color: #bcb8ab;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+        }
+
+        .terms-section h2 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0 0 14px;
+            color: var(--ink);
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .terms-section h2 .sec-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            color: var(--blue);
+            font-weight: 700;
+            background: rgba(36, 75, 255, 0.08);
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.04em;
+        }
+
+        .terms-section p {
+            margin: 0 0 14px;
+            font-size: 14.5px;
+            color: #383834;
+            line-height: 1.75;
+        }
+
+        .terms-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms-list {
+            margin: 12px 0 14px;
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .terms-list li {
+            position: relative;
+            padding-left: 24px;
+            font-size: 14.5px;
+            color: #383834;
+            line-height: 1.65;
+        }
+
+        .terms-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 12px;
+            color: var(--blue);
+        }
+
+        /* Contact Highlight */
+        .contact-box {
+            background: #171717;
+            color: #fff;
+            border-radius: 20px;
+            padding: 36px 32px;
+            margin-top: 40px;
+            box-shadow: 6px 6px 0 var(--blue);
+        }
+
+        .contact-box h2 {
+            color: #fff;
+            font-size: 22px;
+            margin: 0 0 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-box p {
+            color: #b5b5ad;
+            margin: 0 0 20px;
+            font-size: 15px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--lime);
+            color: var(--ink);
+            font-weight: 800;
+            font-size: 15px;
+            padding: 13px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: #e2ff7a;
+            transform: translateY(-2px);
+        /* Nav between legal docs */
+        .legal-nav-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
+        }
+
+        .legal-nav-pill {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--ink);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .legal-nav-pill:hover,
+        .legal-nav-pill.active {
+            background: var(--ink);
+            color: #fff;
+            border-color: var(--ink);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--line);
+            padding: 32px 24px;
+            font-size: 12px;
+            color: var(--muted);
+            max-width: var(--max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .legal-container {
+                padding: 32px 18px 60px;
+            }
+
+            .terms-section {
+                padding: 22px 20px;
+            }
+
+            .intro-box {
+                padding: 20px;
+            }
+
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">sign<span>dot</span><sup>®</sup></a>
+            <a class="back-link" href="index.html">← Back to Studio</a>
+        </div>
+    </header>
+
+    <main class="legal-container">
+        <div class="legal-hero">
+            <div class="legal-eyebrow">Official Policies</div>
+            <h1 class="legal-title">Terms of Service</h1>
+            <div class="legal-meta">Effective Date: 17 September 2026</div>
+        </div>
+
+        <div class="intro-box">
+            <p>Welcome to SignDot. These Terms of Service (“Terms”) govern your access to and use of SignDot’s website, services, products, and related features. By accessing our website, placing an order, or using our services, you agree to these Terms. Please read them carefully before making a purchase.</p>
+            <p>If you do not agree with these Terms, please do not use our website or services.</p>
+        </div>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">01</span> About SignDot</h2>
+            <p>SignDot provides digital services and related products as described on its website. The exact scope, deliverables, pricing, and expected delivery timelines will be communicated through the relevant service or order details.</p>
+            <p>For questions regarding an order or these Terms, you may contact us at <a href="tel:9182241037"><strong>9182241037</strong></a>.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">02</span> Eligibility and Use of Our Services</h2>
+            <p>By using SignDot, you confirm that you are legally capable of entering into a binding agreement under applicable law. If you are using our services on behalf of a business or another person, you confirm that you are authorized to accept these Terms on their behalf.</p>
+            <p>You agree to provide accurate, complete, and up-to-date information when placing an order or communicating with SignDot. You are responsible for ensuring that the information, content, documents, and instructions you provide are correct and lawful.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">03</span> Orders and Service Confirmation</h2>
+            <p>When you place an order, you agree to provide all information and materials reasonably required for SignDot to process and complete it.</p>
+            <p>An order will be treated as accepted once SignDot confirms it or begins processing it. We may contact you to clarify your requirements, request missing information, or confirm details before proceeding.</p>
+            <p>If you provide incomplete, incorrect, or misleading information, delivery may be delayed or the service may not be completed as expected.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">04</span> Pricing and Payments</h2>
+            <p>The price applicable to your order will be the price displayed on the website or communicated to you by SignDot at the time of purchase.</p>
+            <p>You agree to pay all applicable charges before or during service delivery, as specified at checkout or in the order confirmation.</p>
+            <p>SignDot may update its prices, offers, packages, or service descriptions from time to time. Any such changes will not alter the agreed price of an order already confirmed, except where you agree to a change or applicable law requires otherwise.</p>
+            <p>You are responsible for ensuring that payment information submitted by you is accurate and that you are authorized to use the selected payment method.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">05</span> Service Delivery and Timelines</h2>
+            <p>SignDot will make reasonable efforts to deliver the service or product within the timeline communicated at the time of order.</p>
+            <p>Delivery timelines may depend on the nature of the service, the completeness of the information provided, customer responses, technical requirements, and the availability of third-party platforms or service providers.</p>
+            <p>If additional information or action is required from you, the delivery timeline may be affected. SignDot will not be responsible for delays caused by inaccurate information, late responses, or circumstances outside its reasonable control.</p>
+            <p>Where SignDot is unable to deliver an order, the refund terms in the Refund Policy will apply, subject to applicable law.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">06</span> Customer Responsibilities</h2>
+            <p>You agree to:</p>
+            <ul class="terms-list">
+                <li>Provide accurate and complete information required for your order.</li>
+                <li>Submit only content, documents, images, signatures, and materials that you are authorized to use.</li>
+                <li>Respond promptly when SignDot requests information or clarification.</li>
+                <li>Review deliverables and notify SignDot of any issues within a reasonable time.</li>
+                <li>Use SignDot’s services only for lawful purposes.</li>
+                <li>Avoid attempting to disrupt, misuse, or interfere with the website or its services.</li>
+            </ul>
+            <p>You remain responsible for the accuracy and legality of information and materials you provide.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">07</span> Revisions and Changes</h2>
+            <p>If revisions are included in the service you purchased, SignDot will provide them within the scope and limits communicated for that service.</p>
+            <p>Requests that substantially change the original requirements, add new deliverables, or fall outside the agreed scope may require additional charges or a new order.</p>
+            <p>SignDot may ask you to confirm revised requirements before proceeding.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">08</span> Intellectual Property</h2>
+            <p>Unless otherwise stated in the applicable service description or agreement, SignDot retains ownership of its website, branding, logos, designs, templates, written materials, software, processes, and other proprietary content.</p>
+            <p>You may not copy, reproduce, distribute, modify, sell, or commercially exploit SignDot’s proprietary materials without prior written permission.</p>
+            <p>You retain any rights you already hold in the materials you provide to SignDot. By submitting those materials, you grant SignDot permission to use them as reasonably necessary to process and deliver your order.</p>
+            <p>Ownership and permitted use of final deliverables will be subject to the applicable service description, order confirmation, or separate written agreement.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">09</span> Prohibited Activities</h2>
+            <p>You must not use SignDot to:</p>
+            <ul class="terms-list">
+                <li>Violate any applicable law or regulation.</li>
+                <li>Infringe another person’s intellectual property, privacy, or other legal rights.</li>
+                <li>Submit fraudulent, deceptive, harmful, or unauthorized material.</li>
+                <li>Attempt to gain unauthorized access to our website, systems, or accounts.</li>
+                <li>Interfere with the operation, security, or availability of our services.</li>
+                <li>Misrepresent your identity or authority when placing an order.</li>
+            </ul>
+            <p>SignDot may suspend or refuse service where it reasonably believes that an order or use of the website violates these Terms or applicable law.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">10</span> Third-Party Services</h2>
+            <p>SignDot may use third-party platforms or providers for payments, communications, hosting, delivery, or other operational functions.</p>
+            <p>Your use of third-party services may also be governed by the terms and privacy policies of those providers. SignDot is not responsible for the independent policies or operations of third-party services, except where applicable law provides otherwise.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">11</span> Disclaimers</h2>
+            <p>SignDot will make reasonable efforts to provide its services as described. However, except as expressly stated by SignDot or required by applicable law, services and website content are provided without guarantees beyond those specifically communicated to you.</p>
+            <p>Any examples, previews, estimated timelines, or descriptions are intended to explain the service and should not be treated as a guarantee of a particular result unless expressly confirmed in writing.</p>
+            <p>Nothing in these Terms excludes or limits any consumer rights or legal protections that cannot lawfully be excluded or limited.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">12</span> Limitation of Liability</h2>
+            <p>To the maximum extent permitted by applicable law, SignDot will not be liable for indirect, incidental, special, or consequential losses arising from your use of the website or services.</p>
+            <p>This limitation does not exclude liability that cannot lawfully be excluded or limited, including any applicable statutory consumer rights or obligations.</p>
+            <p>You should contact SignDot promptly if you believe there is an issue with an order so that we can review it.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">13</span> Refunds</h2>
+            <p>Refund requests are governed by SignDot’s Refund Policy, which forms part of these Terms.</p>
+            <p>SignDot does not provide refunds after successful delivery, except where required by applicable law. If SignDot fails to deliver the order, the customer is entitled to a 100% refund, subject to the Refund Policy and applicable law.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">14</span> Privacy</h2>
+            <p>Your use of SignDot is also governed by our Privacy Policy, which explains how we collect, use, store, and protect personal information.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">15</span> Suspension or Termination</h2>
+            <p>SignDot may suspend or terminate access to its website or services where reasonably necessary to protect the website, comply with law, prevent misuse, or address a breach of these Terms.</p>
+            <p>Any suspension or termination will not remove rights or obligations that have already arisen, including applicable payment, refund, or consumer rights.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">16</span> Changes to These Terms</h2>
+            <p>SignDot may update these Terms from time to time. The revised version will be posted on the website with an updated effective date.</p>
+            <p>Your continued use of the website after revised Terms are posted means that you acknowledge the updated Terms, to the extent permitted by applicable law.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">17</span> Governing Law and Disputes</h2>
+            <p>These Terms are governed by the laws of India, subject to applicable consumer protection laws and other mandatory legal rights.</p>
+            <p>If you have a concern or dispute, please contact SignDot at <a href="tel:9182241037"><strong>9182241037</strong></a> so that we can attempt to resolve the matter.</p>
+            <p>Nothing in these Terms prevents you from exercising any rights or remedies available to you under applicable law.</p>
+        </article>
+
+        <div class="contact-box">
+            <h2>18. Contact & Support</h2>
+            <p>Have questions about these Terms of Service or an active order? Reach out to our team directly.</p>
+            <a class="contact-btn" href="tel:9182241037">
+                <span>Call or Message: 9182241037</span>
+                <span>↗</span>
+            </a>
+        </div>
+
+        <div class="legal-nav-bar">
+            <a class="legal-nav-pill active" href="terms-and-conditions.html">Terms of Service</a>
+            <a class="legal-nav-pill" href="privacy-and-policy.html">Privacy Policy</a>
+            <a class="legal-nav-pill" href="refund-policy.html">Refund Policy</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div>© <span id="year"></span> SignDot Studio. All rights reserved.</div>
+        <div>Designed around your name.</div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

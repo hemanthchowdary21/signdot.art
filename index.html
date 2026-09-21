@@ -1,0 +1,3645 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#012ebd">
+    <meta name="google-site-verification" content="o5PqipHoOAvqLkRNCI3j2Nq1BzUnQRQD7n1dPM1M_js" />a
+    <meta name="description"
+        content="SignDot creates personal signature styles and expressive calligraphy. Explore styles, choose a direction, and request a custom design.">
+    <title>SignDot — Make your mark.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+
+        :root {
+            --blue: #012ebd;
+            --ink: #171717;
+            --paper: #f6f4ed;
+            --lime: #d7ff58;
+            --pink: #ff8ecb;
+            --line: #d9d7cf;
+            --muted: #696961;
+            --max: 1180px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .black-ops-one-regular {
+            font-family: "Black Ops One";
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        button {
+            font: inherit
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 48px));
+            margin: auto
+        }
+
+        .mono {
+            font: 11px 'DM Mono', monospace;
+            letter-spacing: .09em;
+            text-transform: uppercase
+        }
+
+        .nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 25px;
+            letter-spacing: -1.5px
+        }
+
+        .brand span {
+            color: var(--blue)
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600
+        }
+
+        .navlinks a:hover {
+            color: var(--blue)
+        }
+
+        .nav-cta,
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: 0;
+            border-radius: 999px;
+            padding: 14px 21px;
+            background: var(--blue);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: transform .2s, background .2s
+        }
+
+        .nav-cta:hover,
+        .btn:hover {
+            transform: translateY(-2px);
+            background: #1739d9
+        }
+
+        .menu {
+            display: none;
+            background: none;
+            border: 0;
+            font-size: 24px
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: var(--blue);
+            color: white;
+            border-radius: 0 0 28px 28px;
+            min-height: 590px;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            padding: 70px max(24px, calc((100vw - var(--max))/2));
+            gap: 30px
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 50%;
+            right: -120px;
+            top: -190px
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 2;
+            max-width: 570px
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--lime)
+        }
+
+        h1 {
+            font-size: clamp(48px, 6.2vw, 82px);
+            line-height: .98;
+            letter-spacing: -.065em;
+            margin: 0 0 24px;
+            font-weight: 800
+        }
+
+        h1 em {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -.055em;
+            color: var(--lime)
+        }
+
+        .hero p {
+            max-width: 440px;
+            color: #e5eaff;
+            font-size: 17px;
+            line-height: 1.65;
+            margin: 0 0 30px
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .btn.lime {
+            background: var(--lime);
+            color: var(--ink)
+        }
+
+        .btn.lime:hover {
+            background: #e5ff91
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, .55)
+        }
+
+        .hero-art {
+            min-height: 400px;
+            display: grid;
+            place-items: center
+        }
+
+        .paper-card {
+            width: min(100%, 430px);
+            background: var(--paper);
+            color: var(--ink);
+            border-radius: 18px;
+            box-shadow: 0 24px 70px #0c237b66;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            isolation: isolate;
+            animation: float 3s ease-in-out infinite
+        }
+
+        .paper-card:after {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 1px solid #d8d5cb;
+            border-radius: 11px;
+            pointer-events: none
+        }
+
+        /* Corner fold decorations */
+        .card-fold {
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            z-index: 20;
+            pointer-events: none;
+            overflow: hidden
+        }
+
+        .card-fold-tl {
+            top: 0;
+            left: 0
+        }
+
+        .card-fold-tr {
+            top: 0;
+            right: 0;
+            transform: scaleX(-1)
+        }
+
+        /* Fold triangle: border trick */
+        .card-fold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 44px 44px 0 0;
+            border-color: var(--lime) transparent transparent transparent;
+            filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, .22))
+        }
+
+        /* Fold shadow flap underneath */
+        .card-fold::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 44px 44px 0 0;
+            border-color: rgba(0, 0, 0, .08) transparent transparent transparent;
+            transform: translate(2px, 2px)
+        }
+
+        /* Doodles scattered around card */
+        .card-doodle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5
+        }
+
+        .doodle-star {
+            top: -28px;
+            right: -20px
+        }
+
+        .doodle-ticks {
+            bottom: -20px;
+            left: -22px
+        }
+
+        .doodle-circle {
+            top: 30px;
+            left: -32px
+        }
+
+        /* Video window inside card */
+        .video-window {
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+            background: #111;
+            width: 100%;
+            height: 220px;
+            isolation: isolate;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .video-window video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center center;
+            border: 0;
+        }
+
+        .sound-pill-btn {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(23, 23, 23, 0.82);
+            color: #fff;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 999px;
+            padding: 6px 13px;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+
+        .sound-pill-btn:hover {
+            background: rgba(23, 23, 23, 0.95);
+            border-color: rgba(255, 255, 255, 0.45);
+            transform: scale(1.05);
+        }
+
+        .sound-pill-btn.sound-on {
+            background: var(--lime);
+            color: var(--ink);
+            border-color: var(--lime);
+            font-weight: 700;
+        }
+
+        /* Play button overlay — hides once video autoplays */
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            z-index: 3;
+            pointer-events: none
+        }
+
+        .play-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .92);
+            display: grid;
+            place-items: center;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, .28);
+            font-size: 17px;
+            color: var(--ink);
+            padding-left: 4px
+        }
+
+        /* Press play hint below card */
+        .card-scene {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0
+        }
+
+        /* Mobile-only hero elements — hidden by default on desktop */
+        .hero-trust-badges,
+        .hero-mobile-cta {
+            display: none
+        }
+
+        .press-play-hint {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+            color: rgba(255, 255, 255, .6);
+            font: 10px 'DM Mono', monospace;
+            letter-spacing: .18em;
+            text-transform: uppercase
+        }
+
+        .press-play-hint svg {
+            width: 22px;
+            opacity: .6
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--muted)
+        }
+
+        .scribble {
+            width: 100%;
+            height: 180px;
+            overflow: visible
+        }
+
+        .scribble path {
+            fill: none;
+            stroke: var(--blue);
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 900;
+            stroke-dashoffset: 900;
+            animation: write 3.8s .4s ease forwards
+        }
+
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            z-index: 1
+        }
+
+        .card-bottom strong {
+            font-size: 14px
+        }
+
+        .card-bottom small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 5px
+        }
+
+        .stamp {
+            background: var(--lime);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: grid;
+            place-items: center;
+            font: 11px 'DM Mono';
+            text-align: center;
+            transform: rotate(-12deg)
+        }
+
+        .orbit {
+            position: absolute;
+            width: 440px;
+            height: 440px;
+            border: 1px solid #ffffff55;
+            border-radius: 50%;
+            animation: spin 24s linear infinite
+        }
+
+        .orbit:before {
+            content: '✳';
+            position: absolute;
+            top: 25px;
+            left: 55px;
+            color: var(--lime);
+            font-size: 30px
+        }
+
+        .ticker {
+            background: var(--lime);
+            overflow: hidden;
+            padding: 14px 0;
+            color: var(--ink);
+            white-space: nowrap
+        }
+
+        .ticker-track {
+            display: inline-flex;
+            gap: 28px;
+            align-items: center;
+            animation: marquee 28s linear infinite;
+            font: 12px "Black Ops One";
+            text-transform: uppercase;
+            letter-spacing: .08em
+        }
+
+        .ticker b {
+            font: italic 18px 'Playfair Display'
+        }
+
+        .section {
+            padding: 105px 0
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 35px;
+            align-items: end;
+            margin-bottom: 42px
+        }
+
+        .section-head h2 {
+            font-size: clamp(34px, 4.2vw, 54px);
+            letter-spacing: -.055em;
+            line-height: 1.04;
+            margin: 12px 0 0;
+            max-width: 620px
+        }
+
+        .section-head p {
+            max-width: 350px;
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 14px;
+            margin: 0
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px
+        }
+
+        .work-card {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fffdf7;
+            transition: transform .25s, box-shadow .25s
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 35px #16161612
+        }
+
+        .sample {
+            height: 245px;
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .sample.blue {
+            background: #244bff;
+            color: white
+        }
+
+        .sample.pink {
+            background: #ffb4d8
+        }
+
+        .sample.lime {
+            background: #d7ff58
+        }
+
+        .sample.cream {
+            background: #eee8dc
+        }
+
+        .sample.dark {
+            background: #1b1b1b;
+            color: white
+        }
+
+        .sample.lilac {
+            background: #d9d2ff
+        }
+
+        .sample svg {
+            width: 85%;
+            height: 80%
+        }
+
+        .sample path {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.7;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .sample .sample-word {
+            font: italic clamp(30px, 4vw, 55px) 'Playfair Display';
+            letter-spacing: -.06em;
+            transform: rotate(-7deg)
+        }
+
+        .work-info {
+            padding: 18px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px
+        }
+
+        .work-info h3 {
+            font-size: 15px;
+            margin: 0 0 5px
+        }
+
+        .work-info p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .arrow {
+            font-size: 20px;
+            color: var(--blue)
+        }
+
+        .note {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 17px
+        }
+
+        .offer {
+            background: #171717;
+            color: white;
+            padding: 55px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center
+        }
+
+        .offer h2 {
+            font-size: clamp(36px, 4vw, 54px);
+            line-height: 1.02;
+            letter-spacing: -.06em;
+            margin: 15px 0
+        }
+
+        .offer h2 em {
+            font-family: 'Playfair Display';
+            color: var(--pink)
+        }
+
+        .offer p {
+            color: #c7c7c0;
+            line-height: 1.7;
+            font-size: 14px;
+            max-width: 440px
+        }
+
+        .offer-list {
+            display: grid;
+            gap: 0
+        }
+
+        .offer-row {
+            display: flex;
+            gap: 17px;
+            padding: 19px 0;
+            border-bottom: 1px solid #ffffff2a
+        }
+
+        .offer-row:last-child {
+            border: 0
+        }
+
+        .check {
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            background: var(--lime);
+            color: var(--ink);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            font-weight: 800
+        }
+
+        .offer-row strong {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px
+        }
+
+        .offer-row span {
+            font-size: 12px;
+            color: #bcbcb5;
+            line-height: 1.5
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .step {
+            padding: 25px;
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            min-height: 190px
+        }
+
+        .step .symbol {
+            font-size: 25px;
+            color: var(--blue);
+            margin-bottom: 25px
+        }
+
+        .step h3 {
+            font-size: 18px;
+            margin: 0 0 10px
+        }
+
+        .step p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.65;
+            margin: 0
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 60px
+        }
+
+        .faq-grid h2 {
+            font-size: clamp(34px, 4vw, 50px);
+            letter-spacing: -.06em;
+            margin: 12px 0
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--line)
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 0;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none
+        }
+
+        .faq-item summary:after {
+            content: '+';
+            color: var(--blue);
+            font-size: 22px
+        }
+
+        .faq-item[open] summary:after {
+            content: '−'
+        }
+
+        .faq-item p {
+            margin: 0;
+            padding: 0 30px 22px 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7
+        }
+
+        .final-cta {
+            background: var(--pink);
+            border-radius: 24px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px
+        }
+
+        .final-cta h2 {
+            font-size: clamp(36px, 5vw, 62px);
+            letter-spacing: -.065em;
+            line-height: 1;
+            margin: 12px 0
+        }
+
+        .final-cta p {
+            color: #49313e;
+            line-height: 1.6;
+            max-width: 470px;
+            font-size: 14px
+        }
+
+        .footer-brand-strip {
+            background: white;
+            padding: 28px 0 24px;
+            border-top: 1px solid var(--line)
+        }
+
+        .footer {
+            background-color: var(--blue);
+            background-image:
+                linear-gradient(rgba(0, 0, 0, .12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, .12) 1px, transparent 1px);
+            background-size: 40px 40px;
+            padding: 32px 0 28px
+        }
+
+        /* Playfair Display for all footer text except policy links */
+        .footer small,
+        .footer-bottom>span,
+        .footer-bottom>span:last-child {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            align-items: center;
+            padding-bottom: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, .2)
+        }
+
+        .footer small {
+            color: rgba(255, 255, 255, .7);
+            font-size: 12px
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: rgba(255, 255, 255, .55);
+            font-size: 11px
+        }
+
+        /* ── Blue Glassmorphism System ───────────── */
+        .blue-glass-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            box-shadow: 0 16px 40px -4px rgba(0, 10, 50, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
+            border-radius: 26px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .blue-glass-card:hover {
+            background: rgba(255, 255, 255, 0.20);
+            border-color: rgba(255, 255, 255, 0.45);
+            transform: translateY(-5px);
+            box-shadow: 0 24px 50px -6px rgba(0, 8, 45, 0.45), inset 0 1px 2px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .blue-glass-pill {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .mobile-cta {
+            display: none
+        }
+
+        /* Mobile CTA pulse ring */
+        @keyframes cta-pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: .6
+            }
+
+            70% {
+                transform: translate(-50%, -50%) scale(1.55);
+                opacity: 0
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.55);
+                opacity: 0
+            }
+        }
+
+        .mobile-cta-wrap {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            justify-content: center
+        }
+
+        .mobile-cta-wrap .mobile-cta {
+            display: flex;
+            position: relative;
+            background: var(--blue);
+            color: var(--line);
+            font-weight: 800;
+            font-size: 16px;
+            border-radius: 999px;
+            padding: 15px 28px;
+            border: 2.5px solid var(--line);
+            outline: 2.5px solid var(--blue);
+            outline-offset: 4px;
+            box-shadow: 0 8px 32px rgba(113, 88, 255, 0.45), 0 2px 8px rgba(0, 0, 0, .18);
+            gap: 10px;
+            align-items: center;
+            letter-spacing: -.01em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s
+        }
+
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 35%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: rotate(25deg);
+            animation: shine-sweep 3s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes shine-sweep {
+            0% {
+                left: -60%;
+            }
+
+            25%,
+            100% {
+                left: 140%;
+            }
+        }
+
+        .cta-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ink);
+            flex-shrink: 0
+        }
+
+        @keyframes write {
+            to {
+                stroke-dashoffset: 0
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg)
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(0deg)
+            }
+        }
+
+        @keyframes marquee {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        @media(max-width:800px) {
+            .wrap {
+                width: min(100% - 32px, var(--max))
+            }
+
+            .navlinks {
+                display: none
+            }
+
+            .menu {
+                display: block
+            }
+
+            .hero::before {
+                content: none
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 20px 20px 12px;
+                gap: 32px;
+                min-height: 75svh;
+                align-items: start;
+                align-content: start;
+                border-radius: 0 0 22px 22px
+            }
+
+            .hero-copy h1 {
+                font-size: clamp(34px, 9.5vw, 52px);
+                margin-bottom: 6px
+            }
+
+            .hero-copy .mb-8,
+            .hero-copy p {
+                margin-bottom: 4px
+            }
+
+            .hero-art {
+                min-height: unset;
+                width: 100%
+            }
+
+            /* Hide decorative paper card elements on mobile */
+            .card-fold,
+            .card-bottom,
+            .card-doodle,
+            .orbit {
+                display: none !important
+            }
+
+            .card-scene {
+                width: 100%
+            }
+
+            .paper-card {
+                width: 100%;
+                max-width: 100%;
+                transform: none;
+                animation: none;
+                border-radius: 14px;
+                padding: 0;
+                background: transparent;
+                box-shadow: none;
+                gap: 0
+            }
+
+            .paper-card::after {
+                display: none
+            }
+
+            .video-window {
+                height: 190px;
+                border-radius: 12px
+            }
+
+            /* Trust badges row */
+            .hero-trust-badges {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 8px;
+                padding: 10px 12px;
+                background: rgba(255, 255, 255, 0.08);
+                border-radius: 12px;
+                color: white
+            }
+
+            .hero-badge {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                font: 700 9px 'DM Sans', sans-serif;
+                text-align: center;
+                line-height: 1.3;
+                opacity: .92
+            }
+
+            .hero-badge svg {
+                opacity: .85
+            }
+
+            .hero-badge-sep {
+                width: 1px;
+                height: 32px;
+                background: rgba(255, 255, 255, 0.2)
+            }
+
+            /* Mobile CTA inside hero */
+            .hero-mobile-cta {
+                display: flex;
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 4px
+            }
+
+            .hero-mobile-cta .btn {
+                width: 100%;
+                font-size: 16px;
+                padding: 17px 24px;
+                justify-content: center;
+                box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25)
+            }
+
+            .section {
+                padding: 72px 0
+            }
+
+            .section-head {
+                display: block
+            }
+
+            .section-head p {
+                margin-top: 18px
+            }
+
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .sample {
+                height: 200px
+            }
+
+            .offer {
+                grid-template-columns: 1fr;
+                padding: 32px;
+                gap: 25px
+            }
+
+            .steps {
+                grid-template-columns: 1fr
+            }
+
+            .step {
+                min-height: 0
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 20px
+            }
+
+            .final-cta {
+                padding: 35px;
+                display: block
+            }
+
+            .final-cta .btn {
+                margin-top: 15px
+            }
+
+            .footer-top {
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            .mobile-cta-wrap {
+                display: flex
+            }
+
+            .footer {
+                padding-bottom: 90px
+            }
+        }
+
+        @media(max-width:480px) {
+            h1 {
+                font-size: 49px
+            }
+
+            .hero p {
+                font-size: 15px
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr
+            }
+
+            .sample {
+                height: 230px
+            }
+
+            .section-head h2 {
+                font-size: 38px
+            }
+
+            .offer {
+                padding: 26px
+            }
+
+            .final-cta h2 {
+                font-size: 40px
+            }
+        }
+
+        /* ===== FOMO SYSTEM ===== */
+        @keyframes fomo-blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+        }
+
+        @keyframes fomo-shake {
+
+            0%,
+            100% {
+                transform: translateX(0)
+            }
+
+            20% {
+                transform: translateX(-3px)
+            }
+
+            40% {
+                transform: translateX(3px)
+            }
+
+            60% {
+                transform: translateX(-2px)
+            }
+
+            80% {
+                transform: translateX(2px)
+            }
+        }
+
+        @keyframes fomo-marquee {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        @keyframes deal-float {
+
+            0%,
+            100% {
+                transform: rotate(-2deg) translateY(0)
+            }
+
+            50% {
+                transform: rotate(-2deg) translateY(-6px)
+            }
+        }
+
+        @keyframes spots-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 59, 48, .55)
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 59, 48, 0)
+            }
+        }
+
+        /* Top urgency bar */
+        .fomo-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            background: #ff3b30;
+            color: #fff;
+            padding: 0;
+            overflow: hidden
+        }
+
+        .fomo-bar-track {
+            display: inline-flex;
+            gap: 40px;
+            align-items: center;
+            white-space: nowrap;
+            padding: 10px 0;
+            animation: fomo-marquee 22s linear infinite;
+            font: 700 12px 'DM Mono', monospace;
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        .fomo-bar-track s {
+            opacity: .7;
+            font-weight: 400
+        }
+
+        .fomo-bar-track strong {
+            color: #d7ff58;
+            font-size: 13px
+        }
+
+        .fomo-bar-track .fomo-timer {
+            font-size: 13px;
+            background: rgba(0, 0, 0, .25);
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: .12em
+        }
+
+        .fomo-blink {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #d7ff58;
+            animation: fomo-blink .8s step-start infinite;
+            flex-shrink: 0
+        }
+
+        .fomo-sep {
+            opacity: .4
+        }
+
+        /* Push nav down below bar */
+        body {
+            padding-top: 38px
+        }
+
+        /* Deal section */
+        .deal-section {
+            background: #111;
+            color: #fff;
+            padding: 70px 0;
+            overflow: hidden;
+            position: relative
+        }
+
+        .deal-inner {
+            width: min(1180px, calc(100% - 48px));
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 40px;
+            position: relative
+        }
+
+        .deal-left {}
+
+        .deal-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ff3b30;
+            color: #fff;
+            font: 700 11px 'DM Mono', monospace;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 999px;
+            margin-bottom: 22px;
+            animation: spots-pulse 1.8s infinite
+        }
+
+        .deal-headline {
+            font-size: clamp(52px, 8vw, 110px);
+            font-weight: 800;
+            line-height: .88;
+            letter-spacing: -.07em;
+            margin: 0 0 18px;
+            text-transform: uppercase
+        }
+
+        .deal-headline em {
+            font-style: normal;
+            color: var(--lime)
+        }
+
+        .deal-sub {
+            font-size: 15px;
+            color: #aaa;
+            max-width: 500px;
+            line-height: 1.6;
+            margin: 0 0 28px
+        }
+
+        .deal-prices {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 28px
+        }
+
+        .deal-old {
+            font-size: 28px;
+            font-weight: 700;
+            color: #555;
+            text-decoration: line-through;
+            text-decoration-color: #ff3b30;
+            text-decoration-thickness: 3px
+        }
+
+        .deal-new {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--lime);
+            letter-spacing: -.04em;
+            line-height: 1
+        }
+
+        .deal-badge {
+            background: #ff3b30;
+            color: #fff;
+            font: 800 13px 'DM Sans';
+            padding: 6px 14px;
+            border-radius: 999px;
+            letter-spacing: .02em
+        }
+
+        .deal-spots {
+            font: 700 13px 'DM Mono', monospace;
+            color: #ff3b30;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 28px
+        }
+
+        .deal-spots span {
+            color: #fff;
+            background: #ff3b30;
+            padding: 1px 8px;
+            border-radius: 4px;
+            margin-right: 6px
+        }
+
+        .deal-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--lime);
+            color: var(--ink);
+            font: 800 15px 'DM Sans';
+            padding: 16px 30px;
+            border-radius: 999px;
+            text-decoration: none;
+            border: 2.5px solid var(--ink);
+            transition: transform .2s
+        }
+
+        .deal-cta:hover {
+            transform: translateY(-2px)
+        }
+
+        /* Countdown card */
+        .deal-countdown-card {
+            background: var(--lime);
+            color: var(--ink);
+            border-radius: 20px;
+            padding: 32px 28px;
+            text-align: center;
+            min-width: 220px;
+            border: 3px solid var(--ink);
+            box-shadow: 6px 6px 0 var(--ink);
+            flex-shrink: 0
+        }
+
+        .deal-countdown-label {
+            font: 700 10px 'DM Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            opacity: .6;
+            margin-bottom: 10px
+        }
+
+        .deal-countdown-digits {
+            font: 800 48px 'DM Sans', sans-serif;
+            letter-spacing: -.04em;
+            line-height: 1
+        }
+
+        .deal-countdown-sub {
+            font: 11px 'DM Mono';
+            letter-spacing: .1em;
+            opacity: .55;
+            margin-top: 6px;
+            text-transform: uppercase
+        }
+
+        .deal-countdown-unit {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4px;
+            margin-top: 14px
+        }
+
+        .deal-countdown-unit span {
+            font: 9px 'DM Mono';
+            opacity: .5;
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        /* Chaos doodles in deal section */
+        .deal-doodle {
+            position: absolute;
+            pointer-events: none;
+            opacity: .18
+        }
+
+        .deal-doodle-1 {
+            top: 10px;
+            right: 10%;
+            font-size: 80px;
+            transform: rotate(20deg)
+        }
+
+        .deal-doodle-2 {
+            bottom: 10px;
+            left: 5%;
+            font-size: 55px;
+            transform: rotate(-15deg)
+        }
+
+        .deal-doodle-3 {
+            top: 50%;
+            left: 50%;
+            font-size: 100px;
+            opacity: .06;
+            transform: translate(-50%, -50%) rotate(8deg)
+        }
+
+        @media(max-width:800px) {
+            body {
+                padding-top: 38px
+            }
+
+            .deal-inner {
+                grid-template-columns: 1fr
+            }
+
+            .deal-countdown-card {
+                min-width: 0;
+                width: 100%
+            }
+
+            .deal-headline {
+                font-size: clamp(44px, 14vw, 72px)
+            }
+        }
+
+        /* ── Payment Modal ─────────────────────────────── */
+        #payModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: rgba(10, 10, 10, 0.65);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            animation: pm-fade-in 0.22s ease;
+        }
+        #payModal.pm-open {
+            display: flex;
+        }
+        @keyframes pm-fade-in {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        .pm-sheet {
+            background: #fff;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 560px;
+            max-height: 92vh;
+            overflow-y: auto;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.08);
+            animation: pm-slide-up 0.28s cubic-bezier(.22,.68,0,1.2);
+            scroll-behavior: smooth;
+        }
+        @keyframes pm-slide-up {
+            from { opacity: 0; transform: translateY(28px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .pm-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 26px 0;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 16px;
+        }
+        .pm-logo {
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: -1px;
+            color: #111;
+        }
+        .pm-logo span { color: #012ebd; }
+        .pm-close {
+            background: #f4f4f4;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            color: #555;
+            transition: background 0.15s, color 0.15s;
+            line-height: 1;
+        }
+        .pm-close:hover { background: #e8e8e8; color: #111; }
+        .pm-body {
+            padding: 22px 26px 28px;
+        }
+        .pm-title {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 0 0 4px;
+            color: #111;
+        }
+        .pm-subtitle {
+            font-size: 14px;
+            color: #888;
+            margin: 0 0 20px;
+        }
+        /* Plan selector cards inside modal */
+        .pm-plans {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+        .pm-plan {
+            appearance: none;
+            text-align: left;
+            width: 100%;
+            font: inherit;
+            background: #fafafa;
+            border: 1.5px solid #e8e8e8;
+            border-radius: 14px;
+            padding: 16px;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+            color: #111;
+        }
+        .pm-plan:hover {
+            border-color: #bbb;
+            background: #f5f5f5;
+        }
+        .pm-plan.pm-selected {
+            border-color: #012ebd;
+            background: #f0f4ff;
+            box-shadow: 0 0 0 3px rgba(1,46,189,0.10);
+        }
+        .pm-plan-name {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 4px;
+        }
+        .pm-selected .pm-plan-name { color: #012ebd; }
+        .pm-plan-price {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #111;
+            line-height: 1;
+        }
+        .pm-plan-desc {
+            font-size: 11.5px;
+            color: #888;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        /* Form fields inside modal */
+        .pm-field {
+            margin-bottom: 14px;
+        }
+        .pm-field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 6px;
+        }
+        .pm-field input,
+        .pm-field textarea {
+            width: 100%;
+            border: 1.5px solid #e2e2e2;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font: inherit;
+            font-size: 14px;
+            color: #111;
+            background: #fafafa;
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+        }
+        .pm-field input:focus,
+        .pm-field textarea:focus {
+            border-color: #012ebd;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(1,46,189,0.09);
+        }
+        .pm-field input::placeholder,
+        .pm-field textarea::placeholder { color: #bbb; }
+        .pm-field textarea {
+            min-height: 72px;
+            resize: vertical;
+        }
+        .pm-phone-row {
+            display: flex;
+            gap: 0;
+        }
+        .pm-phone-prefix {
+            flex: 0 0 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid #e2e2e2;
+            border-right: 0;
+            border-radius: 10px 0 0 10px;
+            background: #f0f0f0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+        }
+        .pm-phone-row input {
+            border-radius: 0 10px 10px 0 !important;
+        }
+        .pm-row2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        /* Summary bar */
+        .pm-summary {
+            background: #f7f8fc;
+            border: 1.5px solid #e8ebf5;
+            border-radius: 10px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            font-size: 13.5px;
+        }
+        .pm-summary-label { color: #666; }
+        .pm-summary-amount {
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+            color: #111;
+        }
+        /* Pay button */
+        .pm-pay-btn {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            background: #012ebd;
+            color: #fff;
+            font: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px;
+            cursor: pointer;
+            transition: background 0.18s, transform 0.18s;
+            letter-spacing: -0.3px;
+            margin-top: 4px;
+        }
+        .pm-pay-btn:hover:not(:disabled) {
+            background: #0129a8;
+            transform: translateY(-1px);
+        }
+        .pm-pay-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .pm-secure {
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 12px;
+        }
+        /* Notices inside modal */
+        .pm-notice {
+            display: none;
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        .pm-notice.pm-show { display: block; }
+        .pm-notice.pm-info  { background: #f0f7dc; color: #2d5a0a; }
+        .pm-notice.pm-error { background: #fff0f0; color: #c0392b; border: 1px solid #fcd; }
+        .pm-notice.pm-loading { background: #f0f4ff; color: #012ebd; border: 1px solid #c5d2ff; }
+        @keyframes pm-spin {
+            to { transform: rotate(360deg); }
+        }
+        @media (max-width: 600px) {
+            .pm-sheet { border-radius: 20px 20px 0 0; align-self: flex-end; max-height: 95vh; }
+            #payModal { align-items: flex-end; padding: 0; }
+            .pm-plans { grid-template-columns: 1fr 1fr; }
+            .pm-row2 { grid-template-columns: 1fr; }
+            .pm-body { padding: 18px 18px 32px; }
+        }
+
+        /* ── Sticky mobile CTA bar ─────────────────── */
+        #stickyMobileCta {
+            display: none
+        }
+
+        @media (max-width: 767px) {
+            #stickyMobileCta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 999;
+                padding: 14px 20px;
+                padding-bottom: calc(14px + env(safe-area-inset-bottom));
+                background: rgba(23, 23, 23, 0.92);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-top: 1px solid rgba(255, 255, 255, .08);
+                justify-content: center;
+                transform: translateY(110%);
+                transition: transform .45s cubic-bezier(.34, 1.56, .64, 1);
+                pointer-events: none
+            }
+
+            #stickyMobileCta.sticky-cta-visible {
+                transform: translateY(0);
+                pointer-events: auto
+            }
+
+            #stickyMobileCta a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+                background: var(--lime);
+                color: var(--ink);
+                font: 800 16px 'DM Sans', sans-serif;
+                padding: 15px 32px;
+                border-radius: 999px;
+                text-decoration: none;
+                border: 2.5px solid var(--ink);
+                box-shadow: 4px 4px 0 var(--ink)
+            }
+        }
+
+        /* ── Intro / Loading Screen ─────────────────── */
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: grid;
+            place-items: center;
+            background: #012ebd;
+            color: #fff;
+            overflow: hidden;
+            user-select: none;
+            transition: opacity .8s ease, visibility .8s ease;
+        }
+
+        .intro-screen.is-gone {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .intro-inner {
+            width: min(900px, calc(100% - 40px));
+            text-align: center;
+            position: relative;
+        }
+
+        .intro-logo {
+            font-size: clamp(34px, 5vw, 58px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin: 0 0 20px;
+            opacity: 0;
+            animation: introRise .7s .15s ease forwards;
+        }
+
+        .intro-logo span {
+            color: var(--lime);
+        }
+
+        .intro-signature {
+            width: min(820px, 100%);
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .intro-signature path {
+            fill: none;
+            stroke: var(--lime);
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 4000;
+            stroke-dashoffset: 4000;
+            animation: introWrite 2.4s .4s ease forwards;
+        }
+
+        .intro-sub {
+            font: 11px 'DM Mono', monospace;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            margin-top: 28px;
+            color: #e4e5ff;
+            opacity: 0;
+            animation: introRise .7s 2.2s ease forwards;
+        }
+
+        @keyframes introWrite {
+            from {
+                stroke-dashoffset: 4000;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes introRise {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .intro-signature path {
+                animation: none;
+                stroke-dashoffset: 0;
+            }
+
+            .intro-logo,
+            .intro-sub {
+                animation: none;
+                opacity: 1;
+            }
+
+            .intro-screen {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Intro / Loading Screen -->
+    <div class="intro-screen" id="signdot-intro" aria-label="SignDot intro animation" role="status">
+        <div class="intro-inner">
+            <div class="intro-logo">sign<span>dot</span><sup>®</sup></div>
+            <svg class="intro-signature" viewBox="0 0 900 250" aria-hidden="true">
+                <path
+                    d="M48 183 C105 110 151 34 185 56 C217 77 152 211 207 193 C264 174 299 76 326 77 C355 79 302 202 352 194 C407 184 452 101 476 103 C508 106 458 207 511 193 C563 180 606 115 632 120 C665 126 612 203 671 193 C718 185 761 130 789 137 C818 143 786 197 844 164" />
+            </svg>
+            <div class="intro-sub">Signature &amp; Calligraphy Studio</div>
+        </div>
+    </div>
+
+    <!-- FOMO urgency bar -->
+    <div class="fomo-bar" role="banner" aria-label="Limited time offer">
+        <div class="fomo-bar-track">
+            <span class="fomo-blink"></span>
+            <span>OFFER EXPIRES IN&nbsp;</span>
+            <span class="fomo-timer" id="fomo-countdown">00:00:00</span>
+            <span class="fomo-sep">|</span>
+            <s>&#8377;9,999</s>
+            <strong>&#8377;999</strong>
+            <span class="fomo-sep">|</span>
+            <span>90% OFF TODAY ONLY</span>
+            <span class="fomo-sep">&#9733;</span>
+            <span class="fomo-blink"></span>
+            <span>OFFER EXPIRES IN&nbsp;</span>
+            <span class="fomo-timer" id="fomo-countdown-2">00:00:00</span>
+            <span class="fomo-sep">|</span>
+            <s>&#8377;9,999</s>
+            <strong>&#8377;999</strong>
+            <span class="fomo-sep">|</span>
+            <span>90% OFF TODAY ONLY</span>
+            <span class="fomo-sep">&#9733;</span>
+        </div>
+    </div>
+    <header class="wrap nav"><a class="brand" href="#home">sign<span>dot</span><sup>®</sup></a>
+        <nav class="navlinks"><a href="#work">Our work</a><a href="#services">What we design</a><a href="#process">How
+                it works</a><a href="#faq">FAQs</a><a class="nav-cta" href="#start">Get your signature
+                <span>↗</span></a></nav>
+    </header>
+    <main id="home">
+        <section class="hero">
+            <div class="hero-copy">
+                <h1 class="sm:text-2xl lg:text-7xl">Signature <div class="mt-2">That feels like</div>
+                </h1>
+                <h1 class="sm:text-4xl mb-2 lg:text-7xl"><em>You.</em></h1>
+                <p class="mb-2">Custom signature design, crafted by experts
+                    for your personal, professional, and digital life.</p>
+                <div class="hero-actions md:block hidden"><a class="btn lime" href="#start">Design my signature
+                        <span>↗</span></a></div>
+            </div>
+            <div class="hero-art" aria-label="Animated signature drawing">
+                <div class="card-scene">
+                    <div class="paper-card">
+                        <!-- Top-left corner fold -->
+                        <div class="card-fold card-fold-tl"></div>
+                        <!-- Top-right corner fold -->
+                        <div class="card-fold card-fold-tr"></div>
+                        <div class="video-window" id="videoWindow" title="Click to toggle audio">
+                            <video id="heroVideo" src="https://res.cloudinary.com/vet43gph/video/upload/signdot_1.mp4"
+                                autoplay loop muted playsinline preload="auto">
+                            </video>
+                            <button id="soundToggle" class="sound-pill-btn" type="button" aria-label="Toggle audio">
+                                <span id="soundIcon">🔇</span>
+                                <span id="soundText">Tap for sound</span>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <div><strong>Make it unmistakably yours.</strong><small>Custom signature concept</small>
+                            </div>
+                            <div class="stamp">MADE<br>TO<br>MAKE A MARK</div>
+                        </div>
+                    </div>
+
+                    <!-- Doodle: 4-pointed sparkle star top-right -->
+                    <div class="card-doodle doodle-star">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                            <path d="M17 2 L19 15 L32 17 L19 19 L17 32 L15 19 L2 17 L15 15 Z" fill="#d7ff58"
+                                opacity="0.85" />
+                        </svg>
+                    </div>
+
+                    <!-- Doodle: diagonal tick marks bottom-left -->
+                    <div class="card-doodle doodle-ticks">
+                        <svg width="36" height="28" viewBox="0 0 36 28" fill="none" stroke="rgba(255,255,255,0.55)"
+                            stroke-width="2.2" stroke-linecap="round">
+                            <line x1="4" y1="24" x2="14" y2="4" />
+                            <line x1="14" y1="24" x2="24" y2="4" />
+                            <line x1="24" y1="24" x2="34" y2="4" />
+                        </svg>
+                    </div>
+
+                    <!-- Doodle: hand-drawn circle squiggle left -->
+                    <div class="card-doodle doodle-circle">
+                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="rgba(255,255,255,0.4)"
+                            stroke-width="2" stroke-linecap="round">
+                            <path d="M19 5 C30 5 34 12 33 20 C32 30 24 34 17 33 C8 32 4 24 6 16 C8 8 14 4 20 6" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile trust badges -->
+            <div class="hero-trust-badges">
+                <div class="hero-badge">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+                    </svg>
+                    <span>100%<br>Original</span>
+                </div>
+                <div class="hero-badge-sep"></div>
+                <div class="hero-badge">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span>Fast<br>Delivery</span>
+                </div>
+                <div class="hero-badge-sep"></div>
+                <div class="hero-badge">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M18.364 5.636a9 9 0 010 12.728M5.636 5.636a9 9 0 000 12.728M12 12h.01" />
+                    </svg>
+                    <span>Use<br>Everywhere</span>
+                </div>
+                <div class="hero-badge-sep"></div>
+                <div class="hero-badge">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622C17.176 19.29 21 14.591 21 9c0-1.125-.16-2.215-.456-3.243-.063-.22-.134-.437-.21-.65l-.009-.025z" />
+                    </svg>
+                    <span>Trusted<br>by Thousands</span>
+                </div>
+            </div>
+            <div class="hero-mobile-cta"><a class="btn lime" href="#start">Get Your Signature <span>→</span></a></div>
+        </section>
+
+        <!-- BEFORE/AFTER CAROUSEL — Tailwind -->
+        <section id="work" class="bg-white py-10 overflow-hidden border-t border-[#eee]">
+
+            <!-- Header -->
+            <div
+                class="max-w-[1180px] mx-auto px-6 flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                <div>
+                    <p class="font-mono text-[11px] tracking-[.09em] uppercase text-[#171717] mb-2 opacity-50">Before
+                        &amp; after</p>
+                    <h2
+                        class="text-[#171717] font-extrabold leading-[1.04] tracking-[-0.055em] text-4xl md:text-5xl m-0">
+                        Real transformations.<br><em
+                            class="font-['Playfair_Display'] font-semibold text-[#4a3fff] not-italic">Real
+                            signatures.</em>
+                    </h2>
+                </div>
+                <p class="text-[#888] text-sm leading-relaxed max-w-xs m-0">Each design starts with a name and a
+                    direction. Here's what that looks like in practice.</p>
+            </div>
+
+            <!-- Stage -->
+            <div class="relative" id="baStage">
+
+                <!-- Track -->
+                <div class="relative h-[420px] md:h-[600px]" id="baTrack">
+
+                    <!-- ── SLIDE TEMPLATE (repeat per client) ── -->
+
+                    <!-- Slide 1 -->
+                    <div class="ba-slide absolute inset-0 px-4 md:px-8 overflow-y-auto transition-opacity duration-700 ease-in-out"
+                        style="opacity:1;pointer-events:auto">
+                        <!-- Before / After panels -->
+                        <div class="grid rounded-2xl overflow-hidden h-[260px] md:h-[420px]"
+                            style="grid-template-columns:1fr 44px 1fr">
+                            <!-- Before -->
+                            <div class="relative bg-[#f0f0ec] flex items-center justify-center overflow-hidden">
+                                <span
+                                    class="absolute top-3 left-3 z-10 bg-black/10 backdrop-blur text-[#333] text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full">Before</span>
+                                <img class="max-w-full max-h-full object-contain p-4 select-none" alt="Before signature"
+                                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F6.72a86076.png&w=640&q=75&dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+                            </div>
+                            <!-- Divider -->
+                            <div class="bg-white flex items-center justify-center">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-[#171717] text-white flex items-center justify-center text-[10px] font-bold font-mono tracking-wide">
+                                    vs</div>
+                            </div>
+                            <!-- After -->
+                            <div class="relative bg-[#eef0f8] flex items-center justify-center overflow-hidden">
+                                <span
+                                    class="absolute top-3 right-3 z-10 bg-[#4a3fff]/15 backdrop-blur text-[#4a3fff] text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full">After</span>
+                                <img class="max-w-full max-h-full object-contain p-4 select-none" alt="After signature"
+                                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F6.e5ecc8d0.png&w=640&q=75&dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+                            </div>
+                        </div>
+                        <!-- Info -->
+                        <div class="max-w-[1180px] mx-auto px-0 pt-6 pb-2">
+                            <div class="flex items-center gap-2 flex-wrap mb-2">
+                                <span class="text-[#171717] font-bold text-[15px]">Arjun M.</span>
+                                <span class="text-[#ccc]">·</span>
+                                <span class="text-[#4a3fff] font-mono text-[11px] tracking-widest uppercase">Confident
+                                    &amp; Fluid</span>
+                            </div>
+                            <p class="text-[#666] text-sm leading-relaxed mb-3 max-w-xl">&ldquo;I wanted something bold
+                                but still personal — the kind of signature that stops people when they see it on
+                                paper.&rdquo;</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Expressive</span>
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Quick-moving</span>
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Personal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="ba-slide absolute inset-0 px-4 md:px-8 overflow-y-auto transition-opacity duration-700 ease-in-out"
+                        style="opacity:0;pointer-events:none">
+                        <div class="grid rounded-2xl overflow-hidden h-[260px] md:h-[420px]"
+                            style="grid-template-columns:1fr 44px 1fr">
+                            <div class="relative bg-[#f5f0ec] flex items-center justify-center overflow-hidden">
+                                <span
+                                    class="absolute top-3 left-3 z-10 bg-black/10 backdrop-blur text-[#333] text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full">Before</span>
+                                <img class="max-w-full max-h-full object-contain p-4 select-none" alt="Before signature"
+                                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F6.72a86076.png&w=640&q=75&dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+                            </div>
+                            <div class="bg-white flex items-center justify-center">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-[#171717] text-white flex items-center justify-center text-[10px] font-bold font-mono tracking-wide">
+                                    vs</div>
+                            </div>
+                            <div class="relative bg-[#eef4f0] flex items-center justify-center overflow-hidden">
+                                <span
+                                    class="absolute top-3 right-3 z-10 bg-[#4a3fff]/15 backdrop-blur text-[#4a3fff] text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full">After</span>
+                                <img class="max-w-full max-h-full object-contain p-4 select-none" alt="After signature"
+                                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F6.e5ecc8d0.png&w=640&q=75&dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+                            </div>
+                        </div>
+                        <div class="max-w-[1180px] mx-auto px-0 pt-6 pb-2">
+                            <div class="flex items-center gap-2 flex-wrap mb-2">
+                                <span class="text-[#171717] font-bold text-[15px]">Priya S.</span>
+                                <span class="text-[#ccc]">·</span>
+                                <span class="text-[#4a3fff] font-mono text-[11px] tracking-widest uppercase">Modern
+                                    &amp; Minimal</span>
+                            </div>
+                            <p class="text-[#666] text-sm leading-relaxed mb-3 max-w-xl">&ldquo;Clean, understated —
+                                exactly the kind of mark I'd put on every document without thinking twice.&rdquo;</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Clean</span>
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Understated</span>
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Easy-flowing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="ba-slide absolute inset-0 px-4 md:px-8 overflow-y-auto transition-opacity duration-700 ease-in-out"
+                        style="opacity:0;pointer-events:none">
+                        <div class="grid rounded-2xl overflow-hidden h-[260px] md:h-[420px]"
+                            style="grid-template-columns:1fr 44px 1fr">
+                            <div class="relative bg-[#f0eef8] flex items-center justify-center overflow-hidden">
+                                <span
+                                    class="absolute top-3 left-3 z-10 bg-black/10 backdrop-blur text-[#333] text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full">Before</span>
+                                <img class="max-w-full max-h-full object-contain p-4 select-none" alt="Before signature"
+                                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F6.72a86076.png&w=640&q=75&dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+                            </div>
+                            <div class="bg-white flex items-center justify-center">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-[#171717] text-white flex items-center justify-center text-[10px] font-bold font-mono tracking-wide">
+                                    vs</div>
+                            </div>
+                            <div class="relative bg-[#f8eef4] flex items-center justify-center overflow-hidden">
+                                <span
+                                    class="absolute top-3 right-3 z-10 bg-[#4a3fff]/15 backdrop-blur text-[#4a3fff] text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full">After</span>
+                                <img class="max-w-full max-h-full object-contain p-4 select-none" alt="After signature"
+                                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F6.e5ecc8d0.png&w=640&q=75&dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+                            </div>
+                        </div>
+                        <div class="max-w-[1180px] mx-auto px-0 pt-6 pb-2">
+                            <div class="flex items-center gap-2 flex-wrap mb-2">
+                                <span class="text-[#171717] font-bold text-[15px]">Mira K.</span>
+                                <span class="text-[#ccc]">·</span>
+                                <span class="text-[#4a3fff] font-mono text-[11px] tracking-widest uppercase">Soft
+                                    Calligraphy</span>
+                            </div>
+                            <p class="text-[#666] text-sm leading-relaxed mb-3 max-w-xl">&ldquo;Elegant and delicate —
+                                like something you'd find inside a handwritten letter. It feels genuinely mine.&rdquo;
+                            </p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Elegant</span>
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Delicate</span>
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Flowing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="ba-slide absolute inset-0 px-4 md:px-8 overflow-y-auto transition-opacity duration-700 ease-in-out"
+                        style="opacity:0;pointer-events:none">
+                        <div class="grid rounded-2xl overflow-hidden h-[260px] md:h-[420px]"
+                            style="grid-template-columns:1fr 44px 1fr">
+                            <div class="relative bg-[#f2f0eb] flex items-center justify-center overflow-hidden">
+                                <span
+                                    class="absolute top-3 left-3 z-10 bg-black/10 backdrop-blur text-[#333] text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full">Before</span>
+                                <img class="max-w-full max-h-full object-contain p-4 select-none" alt="Before signature"
+                                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F6.72a86076.png&w=640&q=75&dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+                            </div>
+                            <div class="bg-white flex items-center justify-center">
+                                <div
+                                    class="w-9 h-9 rounded-full bg-[#171717] text-white flex items-center justify-center text-[10px] font-bold font-mono tracking-wide">
+                                    vs</div>
+                            </div>
+                            <div class="relative bg-[#f0f4ee] flex items-center justify-center overflow-hidden">
+                                <span
+                                    class="absolute top-3 right-3 z-10 bg-[#4a3fff]/15 backdrop-blur text-[#4a3fff] text-[10px] font-mono tracking-widest uppercase px-3 py-1 rounded-full">After</span>
+                                <img class="max-w-full max-h-full object-contain p-4 select-none" alt="After signature"
+                                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F6.e5ecc8d0.png&w=640&q=75&dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+                            </div>
+                        </div>
+                        <div class="max-w-[1180px] mx-auto px-0 pt-6 pb-2">
+                            <div class="flex items-center gap-2 flex-wrap mb-2">
+                                <span class="text-[#171717] font-bold text-[15px]">Nadia R.</span>
+                                <span class="text-[#ccc]">·</span>
+                                <span class="text-[#4a3fff] font-mono text-[11px] tracking-widest uppercase">Bold &amp;
+                                    Distinctive</span>
+                            </div>
+                            <p class="text-[#666] text-sm leading-relaxed mb-3 max-w-xl">&ldquo;Strong, graphic — a
+                                signature that gets remembered the moment someone sees it.&rdquo;</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Strong</span>
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Graphic</span>
+                                <span
+                                    class="border border-[#e0e0e0] text-[#888] text-[11px] font-mono tracking-wide uppercase rounded-full px-3 py-1">Memorable</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /baTrack -->
+
+                <!-- Prev arrow -->
+                <button id="baPrev" aria-label="Previous slide"
+                    class="absolute top-[130px] md:top-[210px] left-3 md:left-5 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/8 hover:bg-black/14 border border-black/10 text-[#333] text-lg flex items-center justify-center backdrop-blur transition-colors">&#8592;</button>
+                <!-- Next arrow -->
+                <button id="baNext" aria-label="Next slide"
+                    class="absolute top-[130px] md:top-[210px] right-3 md:right-5 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/8 hover:bg-black/14 border border-black/10 text-[#333] text-lg flex items-center justify-center backdrop-blur transition-colors">&#8594;</button>
+
+            </div><!-- /baStage -->
+
+            <!-- Dots -->
+            <div id="baDots" class="flex justify-center gap-2 mt-7 mb-4"></div>
+
+            <!-- Footer note -->
+            <p class="text-center text-[#aaa] text-[11px] font-mono tracking-widest uppercase mt-2 px-4">Concept
+                examples shown for style inspiration. Final work is tailored to your name &amp; direction.</p>
+
+            <!-- Carousel JS -->
+            <script>
+                (function () {
+                    const track = document.getElementById('baTrack');
+                    const dotsWrap = document.getElementById('baDots');
+                    if (!track) return;
+                    const slides = Array.from(track.querySelectorAll('.ba-slide'));
+                    const total = slides.length;
+                    if (!total) return;
+
+                    let cur = 0;
+                    let timer = null;
+
+                    // Build dots
+                    if (dotsWrap) {
+                        dotsWrap.innerHTML = '';
+                        slides.forEach((_, i) => {
+                            const dot = document.createElement('button');
+                            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                            dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' + (i === 0 ? 'bg-[#171717] scale-125' : 'bg-[#ddd]');
+                            dot.addEventListener('click', () => go(i));
+                            dotsWrap.appendChild(dot);
+                        });
+                    }
+
+                    // Initialise: first visible, rest hidden
+                    slides.forEach((s, i) => {
+                        s.style.opacity = i === 0 ? '1' : '0';
+                        s.style.pointerEvents = i === 0 ? 'auto' : 'none';
+                    });
+
+                    function go(n) {
+                        slides[cur].style.opacity = '0';
+                        slides[cur].style.pointerEvents = 'none';
+                        cur = (n + total) % total;
+                        slides[cur].style.opacity = '1';
+                        slides[cur].style.pointerEvents = 'auto';
+
+                        if (dotsWrap) {
+                            dotsWrap.querySelectorAll('button').forEach((b, i) => {
+                                b.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' + (i === cur ? 'bg-[#171717] scale-125' : 'bg-[#ddd]');
+                            });
+                        }
+                        reset();
+                    }
+
+                    function reset() {
+                        if (timer) clearInterval(timer);
+                        timer = setInterval(() => go(cur + 1), 5000);
+                    }
+
+                    const prevBtn = document.getElementById('baPrev');
+                    const nextBtn = document.getElementById('baNext');
+                    if (prevBtn) prevBtn.onclick = () => go(cur - 1);
+                    if (nextBtn) nextBtn.onclick = () => go(cur + 1);
+
+                    // Touch/swipe
+                    let sx = 0;
+                    track.addEventListener('touchstart', e => {
+                        if (e.touches && e.touches[0]) sx = e.touches[0].clientX;
+                    }, { passive: true });
+
+                    track.addEventListener('touchend', e => {
+                        if (!e.changedTouches || !e.changedTouches[0]) return;
+                        const dx = sx - e.changedTouches[0].clientX;
+                        if (Math.abs(dx) > 40) go(dx > 0 ? cur + 1 : cur - 1);
+                    }, { passive: true });
+
+                    // Keyboard
+                    document.addEventListener('keydown', e => {
+                        if (e.key === 'ArrowLeft') go(cur - 1);
+                        if (e.key === 'ArrowRight') go(cur + 1);
+                    });
+
+                    reset();
+                })();
+            </script>
+        </section>
+        <div class="ticker">
+            <div class="ticker-track black-ops-one-regular"><span>YOUR NAME, REIMAGINED</span><span>PERSONAL
+                    SIGNATURES</span><span>CALLIGRAPHY</span><span>DESIGNED AROUND
+                    YOU</span><span>YOUR NAME, REIMAGINED</span><span>PERSONAL
+                    SIGNATURES</span><span>CALLIGRAPHY</span><span>DESIGNED AROUND YOU</span>
+            </div>
+        </div>
+        <section class="" id="services">
+            <div class="offer">
+                <div>
+                    <div class="mono" style="color:var(--lime)">Made around your name</div>
+                    <h2>A signature that feels <em>like you.</em></h2>
+                    <p>Not sure what style suits you? Tell us what you like, where you’ll use it, and what you want it
+                        to express. We’ll help shape a direction that feels natural to own.</p><a class="btn lime"
+                        href="#start">Start your custom design ↗</a>
+                </div>
+                <div class="offer-list">
+                    <div class="offer-row">
+                        <div class="check">✓</div>
+                        <div><strong>Personal signature concepts</strong><span>Custom visual directions built around
+                                your name and preferences.</span></div>
+                    </div>
+                    <div class="offer-row">
+                        <div class="check">✓</div>
+                        <div><strong>Calligraphy & lettering</strong><span>Expressive lettering for names, gifts,
+                                creative projects, and personal use.</span></div>
+                    </div>
+                    <div class="offer-row">
+                        <div class="check">✓</div>
+                        <div><strong>Style guidance</strong><span>Explore clean, elegant, bold, artistic, or more
+                                expressive approaches.</span></div>
+                    </div>
+                    <div class="offer-row">
+                        <div class="check">✓</div>
+                        <div><strong>Practice-friendly direction</strong><span>We can help you understand the flow so
+                                you can practice making the design your own.</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section wrap" id="process">
+            <div class="section-head">
+                <div>
+                    <div class="mono">Simple from start to finish</div>
+                    <h2>From your name<br>to your new mark.</h2>
+                </div>
+                <p>Clear steps. No design jargon. You tell us what you're after—we take it from there.</p>
+            </div>
+            <div class="steps">
+                <article class="step">
+                    <div class="symbol">✳</div>
+                    <h3>Tell us about you</h3>
+                    <p>Share the name you want designed, the look you like, and where you plan to use it.</p>
+                </article>
+                <article class="step">
+                    <div class="symbol">〰</div>
+                    <h3>Explore your direction</h3>
+                    <p>We develop a signature or lettering concept around your brief and chosen style.</p>
+                </article>
+                <article class="step">
+                    <div class="symbol">↗</div>
+                    <h3>Make it yours</h3>
+                    <p>Review the design and practice the movement. A signature becomes personal through your own use.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- FOMO DEAL SECTION -->
+        <section class="launch-offer" id="launch-offer" aria-labelledby="launch-title">
+            <div class="launch-orbit launch-orbit-one" aria-hidden="true"></div>
+            <div class="launch-orbit launch-orbit-two" aria-hidden="true"></div>
+            <div class="launch-inner">
+                <div class="launch-copy">
+                    <h2 id="launch-title">Don’t miss<br><em>your mark.</em></h2>
+                    <p>Make your name feel unmistakably yours. Get a custom signature concept for a launch offer
+                        price—before the
+                        timer runs out.</p>
+                    <div class="launch-price"><span class="launch-old">₹10,000</span><strong>₹999</strong><span
+                            class="launch-save">SAVE 90%</span></div>
+                    <a class="launch-button" href="#start">Claim offer <span>↗</span></a>
+                    <div class="launch-footnote">One custom signature concept · Made around your name</div>
+                </div>
+                <div class="launch-side">
+                    <div class="launch-timer-label mono">OFFER EXPIRES IN</div>
+                    <div class="launch-timer" role="timer" aria-live="off">
+                        <div><strong id="launch-hours">00</strong><small>HRS</small></div><b>:</b>
+                        <div><strong id="launch-minutes">00</strong><small>MIN</small></div><b>:</b>
+                        <div><strong id="launch-seconds">00</strong><small>SEC</small></div>
+                    </div>
+                    <div class="launch-note"><span class="launch-note-star">✳</span>
+                        <div><strong>Today’s your day.</strong><small>A little nudge to stop signing like everyone
+                                else.</small>
+                        </div>
+                    </div>
+                    <div class="launch-side-mark" aria-hidden="true">MAKE<br>IT<br>PERSONAL<span>✳</span></div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .launch-offer {
+                position: relative;
+                isolation: isolate;
+                overflow: hidden;
+                margin: 34px 0 0;
+                background: #24113f;
+                color: #fff8ee;
+                min-height: 500px;
+                padding: clamp(30px, 6vw, 76px) 0 0
+            }
+
+            .launch-inner {
+                position: relative;
+                z-index: 2;
+                width: min(1080px, calc(100% - 48px));
+                margin: auto;
+                display: grid;
+                grid-template-columns: 1.08fr .92fr;
+                gap: clamp(28px, 7vw, 100px);
+                align-items: center;
+                padding-bottom: 58px
+            }
+
+            .launch-copy {
+                max-width: 570px
+            }
+
+            .launch-kicker {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: wrap;
+                font: 11px 'DM Mono', monospace;
+                letter-spacing: .08em;
+                color: #d9d9d2
+            }
+
+            .launch-live-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #d7ff58;
+                box-shadow: 0 0 0 5px #d7ff581f;
+                animation: launchPulse 1.8s infinite
+            }
+
+            .launch-sticker {
+                display: inline-block;
+                background: #ff7a3d;
+                color: #24113f;
+                padding: 7px 12px;
+                font-weight: 700;
+                letter-spacing: .04em;
+                transform: rotate(-3deg);
+                clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%)
+            }
+
+            .launch-copy h2 {
+                font-size: clamp(52px, 7vw, 88px);
+                line-height: .88;
+                letter-spacing: -.075em;
+                margin: 28px 0 22px;
+                font-weight: 850
+            }
+
+            .launch-copy h2 em {
+                font-family: 'Playfair Display', serif;
+                font-weight: 600;
+                color: #d7ff58
+            }
+
+            .launch-copy p {
+                max-width: 440px;
+                color: #c7c7c0;
+                font-size: 15px;
+                line-height: 1.7;
+                margin: 0 0 24px
+            }
+
+            .launch-price {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                flex-wrap: wrap;
+                margin: 0 0 24px
+            }
+
+            .launch-old {
+                font-size: 20px;
+                color: #777;
+                text-decoration: line-through;
+                text-decoration-color: #ff7a3d;
+                text-decoration-thickness: 3px
+            }
+
+            .launch-price strong {
+                font-size: clamp(48px, 6vw, 68px);
+                letter-spacing: -.07em;
+                color: #d7ff58;
+                line-height: 1
+            }
+
+            .launch-save {
+                background: #ff7a3d;
+                color: #24113f;
+                border-radius: 999px;
+                padding: 8px 12px;
+                font: 700 11px 'DM Mono', monospace
+            }
+
+            .launch-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 24px;
+                padding: 17px 23px;
+                border-radius: 999px;
+                background: #d7ff58;
+                color: #171717;
+                font-weight: 800;
+                font-size: 14px;
+                box-shadow: 0 7px 0 #9dbd34;
+                transition: transform .2s, box-shadow .2s
+            }
+
+            .launch-button:hover {
+                transform: translateY(3px);
+                box-shadow: 0 4px 0 #9dbd34
+            }
+
+            .launch-footnote {
+                font: 10px 'DM Mono', monospace;
+                letter-spacing: .04em;
+                color: #8d8d85;
+                margin-top: 19px
+            }
+
+            .launch-side {
+                position: relative;
+                min-height: 330px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 8px;
+                padding: 8px;
+                border: 1px solid #ffffff38;
+                border-radius: 20px;
+                background: linear-gradient(145deg, #3b2160, #291647);
+                box-shadow: 14px 14px 0 #160a2a;
+                transform: rotate(1.5deg);
+                animation: launchFloat 5s ease-in-out infinite
+            }
+
+            .launch-timer-label {
+                color: #a9a99f
+            }
+
+            .launch-timer {
+                display: flex;
+                align-items: center;
+                gap: clamp(7px, 1.6vw, 18px)
+            }
+
+            .launch-timer>div {
+                display: grid;
+                gap: 8px;
+                min-width: 0
+            }
+
+            .launch-timer strong {
+                font: 700 clamp(34px, 4.6vw, 58px)/1 'DM Mono', monospace;
+                letter-spacing: -.08em;
+                color: #fff
+            }
+
+            .launch-timer small {
+                font: 9px 'DM Mono', monospace;
+                color: #a7a79e;
+                letter-spacing: .12em
+            }
+
+            .launch-timer>b {
+                font: 32px 'DM Mono', monospace;
+                color: #d7ff58;
+                margin-top: -18px
+            }
+
+            .launch-note {
+                display: flex;
+                align-items: center;
+                gap: 13px;
+                padding-top: 18px;
+                border-top: 1px solid #ffffff22
+            }
+
+            .launch-note-star {
+                display: grid;
+                place-items: center;
+                width: 38px;
+                height: 38px;
+                flex-shrink: 0;
+                background: #ff7a3d;
+                color: #24113f;
+                font-size: 24px
+            }
+
+            .launch-note strong,
+            .launch-note small {
+                display: block
+            }
+
+            .launch-note strong {
+                font-size: 13px
+            }
+
+            .launch-note small {
+                font-size: 11px;
+                color: #a9a99f;
+                line-height: 1.5;
+                margin-top: 4px
+            }
+
+            .launch-side-mark {
+                position: absolute;
+                right: -24px;
+                top: -25px;
+                display: grid;
+                place-items: center;
+                text-align: center;
+                width: 94px;
+                height: 94px;
+                background: #d7ff58;
+                color: #171717;
+                font: 10px 'DM Mono', monospace;
+                line-height: 1.25;
+                transform: rotate(9deg);
+                clip-path: polygon(8% 0, 92% 0, 100% 18%, 100% 82%, 82% 100%, 18% 100%, 0 82%, 0 18%);
+                box-shadow: 0 8px 0 #a3c33c
+            }
+
+            .launch-side-mark span {
+                font-size: 18px;
+                color: #ff7a3d
+            }
+
+            .launch-orbit {
+                position: absolute;
+                border: 1px solid #ffffff14;
+                border-radius: 50%;
+                pointer-events: none
+            }
+
+            .launch-orbit-one {
+                width: 560px;
+                height: 560px;
+                right: -150px;
+                top: -210px
+            }
+
+            .launch-orbit-two {
+                width: 350px;
+                height: 350px;
+                left: 35%;
+                bottom: -240px;
+                border-color: #d7ff5828
+            }
+
+            .launch-bottom-ticker {
+                overflow: hidden;
+                white-space: nowrap;
+                background: #ff7a3d;
+                color: #24113f;
+                padding: 14px 0;
+                font: 11px 'DM Mono', monospace;
+                letter-spacing: .1em
+            }
+
+            .launch-bottom-ticker>div {
+                display: flex;
+                width: max-content;
+                gap: 25px;
+                animation: launchMarquee 24s linear infinite
+            }
+
+            .launch-bottom-ticker b {
+                color: #fff8ee;
+                font-size: 17px
+            }
+
+            @keyframes launchFloat {
+
+                0%,
+                100% {
+                    transform: translateY(0) rotate(1.5deg)
+                }
+
+                50% {
+                    transform: translateY(-9px) rotate(-.5deg)
+                }
+            }
+
+            @keyframes launchPulse {
+                50% {
+                    box-shadow: 0 0 0 9px #d7ff5800
+                }
+            }
+
+            @keyframes launchMarquee {
+                to {
+                    transform: translateX(-50%)
+                }
+            }
+
+            @media(max-width:760px) {
+                .launch-offer {
+                    padding: 4px 4px;
+                    margin-top: 20px;
+                }
+
+                .launch-inner {
+                    grid-template-columns: 1fr;
+                    gap: 34px;
+                    width: calc(100% - 36px);
+                    padding-bottom: 38px
+                }
+
+                .launch-copy h2 {
+                    font-size: clamp(54px, 15vw, 78px);
+                    margin-top: 22px
+                }
+
+                .launch-copy p {
+                    font-size: 14px
+                }
+
+                .launch-side {
+                    min-height: 150px;
+                    width: 80%;
+                    padding: 23px;
+                    flex-wrap: wrap;
+                    transform: none;
+                    animation: none;
+                    margin: 0 8px 0 0
+                }
+
+                .launch-timer {
+                    justify-content: space-between
+                }
+
+                .launch-timer strong {
+                    font-size: clamp(34px, 10vw, 48px)
+                }
+
+                .launch-side-mark {
+                    right: -10px;
+                    top: -22px;
+                    width: 76px;
+                    height: 76px;
+                    font-size: 9px
+                }
+
+                .launch-bottom-ticker {
+                    padding: 12px 0
+                }
+            }
+
+            @media(prefers-reduced-motion:reduce) {
+
+                .launch-live-dot,
+                .launch-side,
+                .launch-bottom-ticker>div {
+                    animation: none
+                }
+            }
+        </style>
+        <script>
+            (() => { const h = document.getElementById('launch-hours'), m = document.getElementById('launch-minutes'), s = document.getElementById('launch-seconds'); if (!h || !m || !s) return; function tick() { const now = new Date(), end = new Date(now); end.setHours(24, 0, 0, 0); let left = Math.max(0, Math.floor((end - now) / 1000)); const hh = Math.floor(left / 3600); left %= 3600; const mm = Math.floor(left / 60), ss = left % 60; h.textContent = String(hh).padStart(2, '0'); m.textContent = String(mm).padStart(2, '0'); s.textContent = String(ss).padStart(2, '0') } tick(); setInterval(tick, 1000) })();
+        </script>
+
+        <section class="section wrap" id="faq">
+            <div class="faq-grid">
+                <div>
+                    <div class="mono">Good to know</div>
+                    <h2>Questions?<br>We’ve got you.</h2>
+                    <p style="color:var(--muted);font-size:14px;line-height:1.7;max-width:340px">A few quick answers
+                        before you get started.</p>
+                </div>
+                <div>
+                    <details class="faq-item">
+                        <summary>Do you create a signature based on my name?</summary>
+                        <p>Yes. The design brief starts with the name you provide and the style you’re drawn to, so the
+                            concept is personal to you.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Can I use the design as my legal signature?</summary>
+                        <p>A design can be inspiration, but legal or financial signatures should be adopted only if they
+                            meet the requirements of the relevant institution and you can reproduce them consistently.
+                            We don’t provide legal advice or guarantee acceptance.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do you make calligraphy as well?</summary>
+                        <p>Yes—SignDot’s creative focus includes calligraphy and lettering, alongside personal signature
+                            design.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>What should I send to get started?</summary>
+                        <p>Send the name to be designed, a few words about the vibe you want (for example, minimal,
+                            bold, elegant, or playful), and where you intend to use it. Avoid sharing sensitive identity
+                            or financial documents.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIGNATURE DESIGN PROCESS SECTION (Funky Doodle Ladder) -->
+        <section id="process" class="wrap py-14 sm:py-20 border-t border-[#e2dfd5]">
+            <!-- Section Header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <div
+                    class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-mono font-bold tracking-widest uppercase bg-[#171717] text-[#d7ff58] border-2 border-[#171717] shadow-[2px_2px_0px_#171717] mb-3.5">
+                    HOW IT WORKS
+                </div>
+                <h2
+                    class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#171717] tracking-tight leading-tight m-0">
+                    Signature <em class="font-['Playfair_Display'] font-normal italic text-[#012ebd]">Design
+                        Process</em>
+                </h2>
+                <p class="text-[#696961] text-xs sm:text-sm mt-3 max-w-md mx-auto leading-relaxed">
+                    No guesswork. From your first thoughts to your final digitized signature in 3 simple steps.
+                </p>
+            </div>
+
+            <!-- Doodle Ladder Flow + Taped Walkthrough Specimen -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-start">
+                <!-- Left: The Ladder / Doodle Steps (No Cards) -->
+                <div class="lg:col-span-7 relative pl-8 sm:pl-12 space-y-6 sm:space-y-16">
+                    <!-- Continuous Dashed Ladder Spine -->
+                    <div
+                        class="absolute left-3.5 sm:left-5 top-5 bottom-8 w-0.5 border-l-2 border-dashed border-[#171717]/30">
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <!-- Ladder Step Marker Badge -->
+                        <div
+                            class="absolute -left-[30px] sm:-left-[38px] top-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#012ebd] text-white flex items-center justify-center font-mono font-extrabold text-xs sm:text-sm border-2 border-[#171717] shadow-[2px_2px_0px_#171717] rotate-[-4deg]">
+                            01
+                        </div>
+
+                        <!-- Step Content -->
+                        <div class="pt-0.5">
+                            <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                                <h3
+                                    class="text-xl sm:text-2xl font-black text-[#171717] tracking-tight m-0 font-sans pl-4">
+                                    Design Concepts
+                                </h3>
+                                <span
+                                    class="inline-flex items-center gap-1 font-mono text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#fff2a8] text-[#171717] border border-[#171717] rotate-[1.5deg] shadow-[2px_2px_0px_#171717]">
+                                    🕒 12 hours
+                                </span>
+                            </div>
+                            <p class="text-[#555] text-sm sm:text-base leading-relaxed m-0 font-normal max-w-lg">
+                                After you place an order, our calligraphers create 4-5 design options based on your
+                                preferences selected in the order form
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <!-- Ladder Step Marker Badge -->
+                        <div
+                            class="absolute -left-[30px] sm:-left-[38px] top-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#d7ff58] text-[#171717] flex items-center justify-center font-mono font-extrabold text-xs sm:text-sm border-2 border-[#171717] shadow-[2px_2px_0px_#171717] rotate-[4deg]">
+                            02
+                        </div>
+
+                        <!-- Step Content -->
+                        <div class="pt-0.5">
+                            <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                                <h3
+                                    class="text-xl sm:text-2xl font-black text-[#171717] tracking-tight m-0 font-sans pl-4">
+                                    Approval
+                                </h3>
+                                <span
+                                    class="inline-flex items-center gap-1 font-mono text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#d7ff58] text-[#171717] border border-[#171717] shadow-[2px_2px_0px_#171717]">
+                                    ✍️ Edits Included
+                                </span>
+                            </div>
+                            <p class="text-[#555] text-sm sm:text-base leading-relaxed m-0 font-normal max-w-lg">
+                                You pick your favourite design as your final signature
+                                <span class="block mt-2 text-[#777]">Or request some changes. We want you to be
+                                    satisfied with our work so we provide additional edits.</span>
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <!-- Ladder Step Marker Badge -->
+                        <div
+                            class="absolute -left-[30px] sm:-left-[38px] top-0 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#171717] text-white flex items-center justify-center font-mono font-extrabold text-xs sm:text-sm border-2 border-[#171717] shadow-[2px_2px_0px_#171717] rotate-[-2deg]">
+                            03
+                        </div>
+
+                        <!-- Step Content -->
+                        <div class="pt-0.5">
+                            <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                                <h3
+                                    class="text-xl sm:text-2xl font-black text-[#171717] tracking-tight m-0 font-sans pl-4">
+                                    Final Signature
+                                </h3>
+                                <span
+                                    class="inline-flex items-center gap-1 font-mono text-xs font-bold px-2.5 py-0.5 rounded-md bg-[#ff8ecb] text-[#171717] border border-[#171717] rotate-[2deg] shadow-[2px_2px_0px_#171717]">
+                                    🕒 1 day
+                                </span>
+                            </div>
+                            <p class="text-[#555] text-sm sm:text-base leading-relaxed m-0 font-normal max-w-lg">
+                                We'll digitize your chosen signature and deliver digital .png files of your signature
+                                along with a practice sheet
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Clean WhatsApp Proof Preview (No Card Frame) -->
+                <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                    <div class="w-full max-w-[340px] sm:max-w-[370px] cursor-pointer group" onclick="openChatModal()">
+                        <!-- Clean Screenshot without polaroid card padding/frame -->
+                        <div
+                            class="overflow-hidden rounded-2xl border border-[#dedad0] shadow-[0_10px_35px_rgba(0,0,0,0.07)] hover:shadow-[0_16px_45px_rgba(0,0,0,0.12)] transition-all duration-300 relative bg-[#fdfdfd]">
+                            <img src="assets/signdot-sample1.png"
+                                alt="Real client design process on WhatsApp — Lawrence Vishnu" loading="lazy"
+                                class="w-full h-auto max-h-[480px] object-cover block group-hover:scale-[1.015] transition-transform duration-300">
+                            <div
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                                <span
+                                    class="opacity-0 group-hover:opacity-100 transition-opacity bg-[#171717]/85 backdrop-blur-xs text-white text-xs font-mono px-3.5 py-1.5 rounded-full shadow-md pointer-events-none">
+                                    Click to view full
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightbox Modal for Chat Screenshot -->
+            <div id="chatModal"
+                class="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md hidden items-center justify-center p-4"
+                onclick="closeChatModal()">
+                <div class="relative max-w-[460px] w-full max-h-[92vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+                    onclick="event.stopPropagation()">
+                    <div class="flex items-center justify-between px-4 py-3 border-b border-[#eae8e1] bg-[#faf8f5]">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#25D366]"></span>
+                            <span class="font-mono text-xs font-semibold text-[#171717]">WhatsApp Order
+                                Walkthrough</span>
+                        </div>
+                        <button onclick="closeChatModal()"
+                            class="w-7 h-7 rounded-full bg-[#eee] hover:bg-[#ddd] text-[#333] flex items-center justify-center text-xs font-bold cursor-pointer transition-colors"
+                            aria-label="Close">✕</button>
+                    </div>
+                    <div class="overflow-y-auto p-2 bg-[#f4f2eb]">
+                        <img src="assets/signdot-sample1.png" alt="Full WhatsApp chat walkthrough"
+                            class="w-full h-auto rounded-xl">
+                    </div>
+                </div>
+            </div>
+            <script>
+                function openChatModal() {
+                    const m = document.getElementById('chatModal');
+                    if (m) { m.classList.remove('hidden'); m.classList.add('flex'); document.body.style.overflow = 'hidden'; }
+                }
+                function closeChatModal() {
+                    const m = document.getElementById('chatModal');
+                    if (m) { m.classList.add('hidden'); m.classList.remove('flex'); document.body.style.overflow = ''; }
+                }
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') closeChatModal();
+                });
+            </script>
+        </section>
+
+        <!-- ORDER & PRICING SECTION -->
+        <section id="start" class="w-full max-w-[480px] mx-auto my-10 px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-[-0.035em] leading-tight m-0">
+                    Handcrafted signatures.<br><em
+                        class="font-['Playfair_Display'] font-semibold text-[#244bff] not-italic">Made just for
+                        you.</em>
+                </h2>
+                <p class="text-[#696961] text-xs sm:text-sm mt-2 max-w-xs mx-auto leading-relaxed">
+                    Select your artist tier below to lock in launch pricing before spots close.
+                </p>
+            </div>
+
+            <!-- Tier 1: Calligrapher -->
+            <div
+                class="bg-white rounded-2xl border-2 border-[#171717] shadow-[5px_5px_0px_#171717] p-5 sm:p-6 mb-5 transition-transform hover:-translate-y-0.5">
+                <div class="flex items-center justify-between pb-3 border-b border-[#eee]">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-[#171717]"></span>
+                        <span
+                            class="font-mono text-xs font-bold tracking-widest uppercase text-[#171717]">Calligrapher</span>
+                    </div>
+                    <span
+                        class="font-mono text-[10px] font-semibold text-[#696961] bg-[#f2f0e8] px-2.5 py-1 rounded-full uppercase tracking-wider">5+
+                        Yrs Exp</span>
+                </div>
+
+                <div class="py-3.5">
+                    <p class="text-[#555] text-sm leading-relaxed m-0">
+                        A custom signature designed around your name, with a polished look that feels naturally yours.
+                    </p>
+                </div>
+
+                <div class="flex items-baseline gap-2.5 py-2">
+                    <span
+                        class="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight font-sans">₹999</span>
+                    <span class="text-lg text-[#999] line-through font-medium">₹9,999</span>
+                    <span
+                        class="ml-auto bg-[#ff3b30] text-white text-[10px] sm:text-[11px] font-bold font-mono tracking-wider px-2.5 py-0.5 rounded-full uppercase">
+                        90% OFF
+                    </span>
+                </div>
+
+                <div class="pt-3">
+                    <a href="signdot_dynamic_standard_premium_order.html?plan=standard"
+                        style="background: #171717; color: white; text-decoration: none;"
+                        class="w-full shine h-12 rounded-xl border-2 border-[#171717] flex items-center justify-center gap-2 font-bold hover:bg-[#2b2b2b] transition-all cursor-pointer">
+                        <span class="text-base tracking-wide font-sans">Order Now (₹999)</span>
+                        <span class="text-xl">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tier 2: Head Calligrapher (VIP / Celebrity) -->
+            <div
+                class="relative bg-[#fffdf2] rounded-2xl border-2 border-[#171717] shadow-[6px_6px_0px_#171717] p-5 sm:p-6 mb-5 transition-transform hover:-translate-y-0.5">
+                <!-- Floating Crown Badge -->
+                <div class="absolute -top-3.5 -left-3 z-10 filter drop-shadow-md">
+                    <img alt="Crown" loading="lazy" width="38" height="38" decoding="async"
+                        srcset="https://www.signaturedesignstudio.in/_next/image?url=%2Fnew%2Fcrown.png&amp;w=48&amp;q=75&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19 1x, https://www.signaturedesignstudio.in/_next/image?url=%2Fnew%2Fcrown.png&amp;w=96&amp;q=75&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19 2x"
+                        src="https://www.signaturedesignstudio.in/_next/image?url=%2Fnew%2Fcrown.png&amp;w=96&amp;q=75&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19"
+                        class="w-9 h-9 -rotate-12 select-none">
+                </div>
+
+                <div class="flex items-center justify-between pb-3 border-b border-[#e8dfc5]">
+                    <div class="flex items-center gap-2 pl-4">
+                        <span class="w-2 h-2 rounded-full bg-[#ffb800]"></span>
+                        <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#171717]">Premium
+                            Calligrapher</span>
+                    </div>
+                    <span
+                        class="font-mono text-[10px] font-bold text-[#171717] bg-[#ffd700] px-2.5 py-1 rounded-full uppercase tracking-wider shadow-xs">Celebrity
+                        Tier · 15+ Yrs</span>
+                </div>
+
+                <div class="py-3.5">
+                    <p class="text-[#444] text-sm leading-relaxed m-0 font-normal">
+                        A distinctive signature concept with refined calligraphy touches for a more expressive personal
+                        mark.
+                    </p>
+                </div>
+
+                <div class="flex items-baseline gap-2.5 py-2">
+                    <span
+                        class="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight font-sans">₹1,499</span>
+                    <span class="text-lg text-[#999] line-through font-medium">₹17,999</span>
+                    <span
+                        class="ml-auto bg-[#ff3b30] text-white text-[10px] sm:text-[11px] font-bold font-mono tracking-wider px-2.5 py-0.5 rounded-full uppercase">
+                        92% OFF
+                    </span>
+                </div>
+
+                <div class="pt-3">
+                    <a href="signdot_dynamic_standard_premium_order.html?plan=premium"
+                        style="background: #ffd700; color: #171717; text-decoration: none;"
+                        class="w-full shine h-12 rounded-xl border-2 border-[#171717] flex items-center justify-center gap-2 font-extrabold hover:bg-[#f5cf00] transition-all cursor-pointer">
+                        <span class="text-base tracking-wide font-sans">Order Now (₹1,499)</span>
+                        <span class="text-xl">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Guarantee Banner -->
+            <div class="pt-2">
+                <img alt="100% Money Back Guarantee" loading="lazy" width="500" height="200" decoding="async"
+                    class="w-full pb-3 rounded-xl select-none"
+                    srcset="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgurantee.806aa73d.png&amp;w=640&amp;q=85&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19 1x, https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgurantee.806aa73d.png&amp;w=1080&amp;q=85&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19 2x"
+                    src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgurantee.806aa73d.png&amp;w=1080&amp;q=85&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19">
+
+                <!-- WhatsApp Support CTA -->
+                <a href="https://wa.me/?text=Hi%2C%20I%27m%20interested%20in%20getting%20a%20bespoke%20signature%20from%20signdot.art"
+                    target="_blank" rel="noopener" class="block group">
+                    <button
+                        class="w-full h-12 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl flex items-center justify-between px-4 transition-all duration-200 shadow-[4px_4px_0px_#171717] border-2 border-[#171717] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-[2px_2px_0px_#171717] cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <img alt="WhatsApp" loading="lazy" width="22" height="22" decoding="async"
+                                srcset="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fwhatsapp.4df38883.png&amp;w=32&amp;q=75&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19 1x, https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fwhatsapp.4df38883.png&amp;w=48&amp;q=75&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19 2x"
+                                src="https://www.signaturedesignstudio.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fwhatsapp.4df38883.png&amp;w=48&amp;q=75&amp;dpl=dpl_9sfRrE1NeLapjzoZAUfq3PfFyE19"
+                                class="w-5 h-5 object-contain">
+                            <span class="text-sm tracking-wide font-sans font-semibold">Have questions? Chat with
+                                us</span>
+                        </div>
+                        <span class="text-xl group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                </a>
+            </div>
+
+            <!-- Scarcity / Spots Bar -->
+            <div class="w-full mt-4">
+                <div
+                    class="w-full bg-[#171717] text-[#fff8ee] rounded-full py-2.5 px-4 flex items-center justify-center gap-2 text-[11px] font-mono tracking-wider uppercase border-2 border-[#171717] shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-[#ff3b30] animate-ping"></span>
+                    <span>Only <strong class="text-[#d7ff58] font-bold">52 / 100 spots</strong> left for
+                        September</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-3 text-[9px] text-[#888] font-mono">
+                By ordering, you agree to our <a href="terms-and-conditions.html"
+                    style="color:inherit;text-decoration:underline;text-underline-offset:3px">Terms</a>, <a
+                    href="privacy-and-policy.html"
+                    style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy Policy</a>, <a
+                    href="refund-policy.html"
+                    style="color:inherit;text-decoration:underline;text-underline-offset:3px">Refund Policy</a>
+            </div>
+        </section>
+
+    </main>
+    <!-- Brand strip on white -->
+    <div class="footer-brand-strip">
+        <div class="wrap">
+            <a class="brand" href="#home">sign<span>dot</span><sup>®</sup></a>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <small>Personal signature design &amp; calligraphy studio.</small>
+            </div>
+            <div class="footer-bottom">
+                <span>© <span id="year"></span> SignDot Studio</span>
+                <div style="display:flex;gap:16px;flex-wrap:wrap">
+                    <a href="terms-and-conditions.html"
+                        style="color:inherit;text-decoration:underline;text-underline-offset:3px">Terms</a>
+                    <a href="privacy-and-policy.html"
+                        style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy Policy</a>
+                    <a href="refund-policy.html"
+                        style="color:inherit;text-decoration:underline;text-underline-offset:3px">Refund Policy</a>
+                </div>
+                <span>Designed around your name.</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Countdown to midnight
+        function getCountdown() {
+            const now = new Date();
+            const midnight = new Date(now);
+            midnight.setHours(23, 59, 59, 999);
+            const diff = Math.max(0, midnight - now);
+            const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+            const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+            const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+            return `${h}:${m}:${s}`;
+        }
+        function updateTimers() {
+            const t = getCountdown();
+            ['fomo-countdown', 'fomo-countdown-2', 'deal-timer'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = t;
+            });
+        }
+        updateTimers();
+        setInterval(updateTimers, 1000);
+
+        // Hero Video Sound Controller
+        (function () {
+            const video = document.getElementById('heroVideo');
+            const toggle = document.getElementById('soundToggle');
+            const soundIcon = document.getElementById('soundIcon');
+            const soundText = document.getElementById('soundText');
+            const windowEl = document.getElementById('videoWindow');
+            if (!video || !toggle) return;
+
+            function toggleAudio(e) {
+                if (e) e.stopPropagation();
+                if (video.muted) {
+                    video.muted = false;
+                    video.volume = 1.0;
+                    const playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(() => { });
+                    }
+                    if (soundIcon) soundIcon.textContent = '🔊';
+                    if (soundText) soundText.textContent = 'Sound on';
+                    toggle.classList.add('sound-on');
+                } else {
+                    video.muted = true;
+                    if (soundIcon) soundIcon.textContent = '🔇';
+                    if (soundText) soundText.textContent = 'Tap for sound';
+                    toggle.classList.remove('sound-on');
+                }
+            }
+
+            toggle.addEventListener('click', toggleAudio);
+            if (windowEl) {
+                windowEl.addEventListener('click', toggleAudio);
+            }
+        })();
+        // Sticky mobile CTA — reveal after 50% scroll
+        (function () {
+            const bar = document.getElementById('stickyMobileCta');
+            if (!bar) return;
+            function onScroll() {
+                const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+                if (scrolled >= 0.5) {
+                    bar.classList.add('sticky-cta-visible');
+                    window.removeEventListener('scroll', onScroll);
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
+
+        // ── Intro / Loading Screen Logic ────────────
+        (function () {
+            const intro = document.getElementById('signdot-intro');
+            if (!intro) return;
+            function enterSite() {
+                if (intro.classList.contains('is-gone')) return;
+                intro.classList.add('is-gone');
+                setTimeout(() => intro.remove(), 850);
+            }
+            // Runs full animation automatically, then smoothly reveals the page
+            setTimeout(enterSite, 3200);
+        })();
+
+        // ── Order Page Navigation ────────────────────────────────────────────
+        function openOrderModal(tier = 'premium') {
+            window.location.href = `signdot_dynamic_standard_premium_order.html?plan=${tier}`;
+        }
+
+        // ── Payment Modal (kept for legacy) ─────────────────────────────────
+        const PM_PLANS = {
+            standard: { label: 'Standard', price: 999, display: '₹999', desc: '1 design · 2 revisions' },
+            premium:  { label: 'Premium',  price: 1499, display: '₹1,499', desc: '3 designs · unlimited revisions' }
+        };
+        let pm_selected = 'premium';
+        let pm_cashfreeInstance = null;
+
+        function pm_getCashfree() {
+            if (!pm_cashfreeInstance && typeof Cashfree !== 'undefined') {
+                pm_cashfreeInstance = Cashfree({ mode: 'production' });
+            }
+            return pm_cashfreeInstance;
+        }
+
+        function openOrderModal(tier = 'standard') {
+            pm_selected = PM_PLANS[tier] ? tier : 'standard';
+            const modal = document.getElementById('payModal');
+            if (!modal) return;
+            pm_renderPlans();
+            pm_updateSummary();
+            pm_hideNotice();
+            document.getElementById('pm-detailsForm')?.reset();
+            modal.classList.add('pm-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function pm_closeModal() {
+            const modal = document.getElementById('payModal');
+            if (!modal) return;
+            modal.classList.remove('pm-open');
+            document.body.style.overflow = '';
+        }
+
+        function pm_choosePlan(key) {
+            if (!PM_PLANS[key]) return;
+            pm_selected = key;
+            pm_renderPlans();
+            pm_updateSummary();
+            pm_hideNotice();
+        }
+
+        function pm_renderPlans() {
+            document.querySelectorAll('.pm-plan').forEach(btn => {
+                const active = btn.dataset.plan === pm_selected;
+                btn.classList.toggle('pm-selected', active);
+                btn.setAttribute('aria-pressed', String(active));
+            });
+        }
+
+        function pm_updateSummary() {
+            const plan = PM_PLANS[pm_selected];
+            const el = document.getElementById('pm-summary-amount');
+            const lbl = document.getElementById('pm-summary-label');
+            if (el) el.textContent = plan.display;
+            if (lbl) lbl.textContent = plan.label + ' Plan';
+            const btn = document.getElementById('pm-payBtn');
+            if (btn) btn.textContent = `Pay ${plan.display} Securely`;
+        }
+
+        function pm_showNotice(msg, type = 'info') {
+            const n = document.getElementById('pm-notice');
+            if (!n) return;
+            n.textContent = msg;
+            n.className = 'pm-notice pm-show pm-' + type;
+        }
+
+        function pm_hideNotice() {
+            const n = document.getElementById('pm-notice');
+            if (!n) return;
+            n.className = 'pm-notice';
+            n.textContent = '';
+        }
+
+        // Close on backdrop click
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('payModal');
+            if (modal) {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === modal) pm_closeModal();
+                });
+            }
+            // Close on Escape
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') pm_closeModal();
+            });
+
+            // Form submit
+            const form = document.getElementById('pm-detailsForm');
+            if (form) {
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const data = Object.fromEntries(new FormData(this).entries());
+                    const name  = (data.pm_name   || '').trim();
+                    const email = (data.pm_email  || '').trim();
+                    const phone = (data.pm_mobile || '').trim();
+                    const amount = PM_PLANS[pm_selected].price;
+
+                    if (!name) {
+                        pm_showNotice('Please enter your full name.', 'error');
+                        document.getElementById('pm-name')?.focus(); return;
+                    }
+                    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                        pm_showNotice('Please enter a valid email address.', 'error');
+                        document.getElementById('pm-email')?.focus(); return;
+                    }
+                    if (!phone || phone.length !== 10 || !/^\d{10}$/.test(phone)) {
+                        pm_showNotice('Please enter a valid 10-digit mobile number.', 'error');
+                        document.getElementById('pm-mobile')?.focus(); return;
+                    }
+
+                    const payBtn = document.getElementById('pm-payBtn');
+                    const origText = payBtn.textContent;
+                    payBtn.disabled = true;
+                    payBtn.innerHTML = `<svg style="width:18px;height:18px;animation:pm-spin 0.8s linear infinite;margin-right:10px;display:inline-block;vertical-align:middle" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"></circle><path fill="currentColor" opacity="0.85" d="M4 12a8 8 0 018-8v8H4z"></path></svg>Connecting…`;
+                    pm_showNotice('Initiating secure payment session…', 'loading');
+
+                    try {
+                        const res = await fetch('https://signdot.chvinay8288.workers.dev/payment/create', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, email, phone, amount })
+                        });
+                        const resData = await res.json().catch(() => null);
+                        if (res.ok && resData && resData.success && resData.payment_session_id) {
+                            pm_showNotice('Session verified! Opening payment portal…', 'loading');
+                            const cf = pm_getCashfree();
+                            if (cf) {
+                                cf.checkout({ paymentSessionId: resData.payment_session_id, redirectTarget: '_self' });
+                            } else {
+                                pm_showNotice('Cashfree SDK is loading. Please click Pay again.', 'error');
+                                payBtn.disabled = false;
+                                payBtn.textContent = origText;
+                            }
+                        } else {
+                            const errMsg = resData?.error || resData?.message || `Server returned status ${res.status}.`;
+                            pm_showNotice(errMsg, 'error');
+                            payBtn.disabled = false;
+                            payBtn.textContent = origText;
+                        }
+                    } catch (err) {
+                        pm_showNotice('Could not connect to payment gateway. Please try again.', 'error');
+                        payBtn.disabled = false;
+                        payBtn.textContent = origText;
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2355222611939244');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2355222611939244&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Sticky mobile CTA bar -->
+    <div id="stickyMobileCta" aria-label="Get your signature">
+        <a href="signdot_dynamic_standard_premium_order.html?plan=standard">Get Your Signature <span>↗</span></a>
+    </div>
+
+    <!-- ── Payment Modal Overlay ──────────────────────────────────────────── -->
+    <div id="payModal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+        <div class="pm-sheet">
+            <div class="pm-header">
+                <span class="pm-logo">sign<span>dot</span><sup style="font-size:10px;vertical-align:top;margin-left:1px;font-weight:600">®</sup></span>
+                <button class="pm-close" onclick="pm_closeModal()" aria-label="Close">✕</button>
+            </div>
+            <div class="pm-body">
+                <h2 class="pm-title" id="pm-title">Complete Your Order</h2>
+                <p class="pm-subtitle">One step away from your perfect signature.</p>
+
+                <!-- Plan selector -->
+                <div class="pm-plans" role="group" aria-label="Choose plan">
+                    <button class="pm-plan" type="button" data-plan="standard" onclick="pm_choosePlan('standard')" aria-pressed="false">
+                        <div class="pm-plan-name">Standard</div>
+                        <div class="pm-plan-price">₹999</div>
+                        <div class="pm-plan-desc">1 design · 2 revisions</div>
+                    </button>
+                    <button class="pm-plan" type="button" data-plan="premium" onclick="pm_choosePlan('premium')" aria-pressed="false">
+                        <div class="pm-plan-name">Premium</div>
+                        <div class="pm-plan-price">₹1,499</div>
+                        <div class="pm-plan-desc">3 designs · unlimited revisions</div>
+                    </button>
+                </div>
+
+                <!-- Order summary -->
+                <div class="pm-summary">
+                    <span class="pm-summary-label" id="pm-summary-label">Premium Plan</span>
+                    <span class="pm-summary-amount" id="pm-summary-amount">₹1,499</span>
+                </div>
+
+                <!-- Details form -->
+                <form id="pm-detailsForm" novalidate>
+                    <div class="pm-field">
+                        <label for="pm-name">Full Name</label>
+                        <input id="pm-name" name="pm_name" type="text" autocomplete="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="pm-row2">
+                        <div class="pm-field">
+                            <label for="pm-email">Email Address</label>
+                            <input id="pm-email" name="pm_email" type="email" autocomplete="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="pm-field">
+                            <label for="pm-mobile">Mobile Number</label>
+                            <div class="pm-phone-row">
+                                <div class="pm-phone-prefix">+91</div>
+                                <input id="pm-mobile" name="pm_mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pm-field">
+                        <label for="pm-notes">Notes <span style="color:#bbb;font-weight:400">(optional)</span></label>
+                        <textarea id="pm-notes" name="pm_notes" placeholder="Preferred style, name spelling, or any requests…"></textarea>
+                    </div>
+
+                    <button class="pm-pay-btn" type="submit" id="pm-payBtn">Pay ₹1,499 Securely</button>
+                    <p class="pm-secure">Payments are encrypted and processed by Cashfree</p>
+                    <div id="pm-notice" class="pm-notice" role="status"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ── /Payment Modal ──────────────────────────────────────────────────── -->
+
+</body>
+
+</html>

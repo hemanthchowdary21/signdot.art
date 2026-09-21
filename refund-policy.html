@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#244bff">
+    <meta name="description" content="SignDot Refund Policy — Understand our transparent 100% money-back guarantee for undelivered orders.">
+    <title>Refund Policy — SignDot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #244bff;
+            --ink: #171717;
+            --paper: #f6f4ed;
+            --lime: #d7ff58;
+            --pink: #ff8ecb;
+            --line: #d9d7cf;
+            --muted: #696961;
+            --card-bg: #ffffff;
+            --max: 820px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .mono {
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* Top Header */
+        .site-header {
+            border-bottom: 1px solid var(--line);
+            background: rgba(246, 244, 237, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: var(--blue);
+        }
+
+        .brand sup {
+            font-size: 9px;
+            font-family: 'DM Mono', monospace;
+            top: -0.6em;
+            margin-left: 2px;
+        }
+
+        .back-link {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #fff;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--paper);
+            text-decoration: none;
+            transform: translateX(-2px);
+        }
+
+        /* Content Container */
+        .legal-container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* Hero */
+        .legal-hero {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid var(--ink);
+        }
+
+        .legal-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legal-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+
+        .legal-title {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 850;
+            letter-spacing: -0.045em;
+            line-height: 1.05;
+            margin: 0 0 16px;
+            color: var(--ink);
+        }
+
+        .legal-meta {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* Highlight banner */
+        .guarantee-callout {
+            background: #fff;
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin: 28px 0 44px;
+            box-shadow: 4px 4px 0 var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .guarantee-callout .badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 800;
+            background: var(--lime);
+            color: var(--ink);
+            padding: 8px 14px;
+            border-radius: 999px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            border: 1.5px solid var(--ink);
+        }
+
+        .guarantee-callout p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--ink);
+        }
+
+        /* Sections */
+        .terms-section {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .terms-section:hover {
+            border-color: #bcb8ab;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+        }
+
+        .terms-section h2 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0 0 14px;
+            color: var(--ink);
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .terms-section h2 .sec-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            color: var(--blue);
+            font-weight: 700;
+            background: rgba(36, 75, 255, 0.08);
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.04em;
+        }
+
+        .terms-section p {
+            margin: 0 0 14px;
+            font-size: 14.5px;
+            color: #383834;
+            line-height: 1.75;
+        }
+
+        .terms-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms-list {
+            margin: 12px 0 14px;
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .terms-list li {
+            position: relative;
+            padding-left: 24px;
+            font-size: 14.5px;
+            color: #383834;
+            line-height: 1.65;
+        }
+
+        .terms-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 12px;
+            color: var(--blue);
+        }
+
+        /* Two Hour Box */
+        .window-card {
+            background: #fff8f5;
+            border: 2px solid #ff7a3d;
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            box-shadow: 4px 4px 0 #ff7a3d;
+        }
+
+        .window-card h2 {
+            color: #171717;
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0 0 12px;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .window-card h2 .sec-num {
+            background: #ff7a3d;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .window-card p {
+            margin: 0 0 12px;
+            font-size: 14.5px;
+            color: #383834;
+            line-height: 1.7;
+        }
+
+        .window-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Contact Highlight */
+        .contact-box {
+            background: #171717;
+            color: #fff;
+            border-radius: 20px;
+            padding: 36px 32px;
+            margin-top: 40px;
+            box-shadow: 6px 6px 0 var(--blue);
+        }
+
+        .contact-box h2 {
+            color: #fff;
+            font-size: 22px;
+            margin: 0 0 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-box p {
+            color: #b5b5ad;
+            margin: 0 0 20px;
+            font-size: 15px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--lime);
+            color: var(--ink);
+            font-weight: 800;
+            font-size: 15px;
+            padding: 13px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: #e2ff7a;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* Nav between legal docs */
+        .legal-nav-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
+        }
+
+        .legal-nav-pill {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--ink);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .legal-nav-pill:hover,
+        .legal-nav-pill.active {
+            background: var(--ink);
+            color: #fff;
+            border-color: var(--ink);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--line);
+            padding: 32px 24px;
+            font-size: 12px;
+            color: var(--muted);
+            max-width: var(--max);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .legal-container {
+                padding: 32px 18px 60px;
+            }
+
+            .terms-section,
+            .window-card {
+                padding: 22px 20px;
+            }
+
+            .guarantee-callout {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            .site-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html">sign<span>dot</span><sup>®</sup></a>
+            <a class="back-link" href="index.html">← Back to Studio</a>
+        </div>
+    </header>
+
+    <main class="legal-container">
+        <div class="legal-hero">
+            <div class="legal-eyebrow">Customer Guarantee</div>
+            <h1 class="legal-title">Refund Policy</h1>
+            <div class="legal-meta">Effective Date: 17 September 2026</div>
+        </div>
+
+        <div class="guarantee-callout">
+            <div class="badge">100% Guarantee</div>
+            <p>This Refund Policy explains when a customer may request a refund for an order placed with SignDot. By placing an order, you acknowledge this policy, subject to any rights you may have under applicable law.</p>
+        </div>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">01</span> General Refund Rule</h2>
+            <p>SignDot does not provide refunds after an order has been successfully delivered.</p>
+            <p>If SignDot does not deliver the order, the customer is entitled to a <strong>100% refund</strong> of the amount paid for that undelivered order.</p>
+            <p>This policy does not limit any refund, cancellation, or other consumer rights that cannot lawfully be excluded under applicable law.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">02</span> Refunds for Undelivered Orders</h2>
+            <p>If SignDot is unable to deliver the service or product you purchased, you may request a full refund.</p>
+            <p>Once SignDot verifies that the order was not delivered, the refund will be for 100% of the amount paid for that undelivered order.</p>
+            <p>A refund under this policy applies to the undelivered order. Where an order contains separately deliverable items or services, the refund will be handled in accordance with the delivery status of the relevant items and applicable law.</p>
+        </article>
+
+        <article class="window-card">
+            <h2><span class="sec-num">03</span> Two-Hour Refund Request Window</h2>
+            <p>Customers must submit a refund request within <strong>2 hours</strong> of the relevant order or delivery commitment, as applicable to the order.</p>
+            <p>Please provide your order details and explain that the order has not been delivered. SignDot may request reasonable information needed to identify the order and verify its status.</p>
+            <p>The two-hour request window is an administrative requirement for submitting a request under this policy. It does not remove or restrict any mandatory rights or remedies available to a customer under applicable law.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">04</span> No Refund After Successful Delivery</h2>
+            <p>Once SignDot has successfully delivered the product or service ordered, the payment is generally non-refundable.</p>
+            <p>This includes situations where the customer changes their mind after delivery or no longer wishes to use the delivered service.</p>
+            <p>However, nothing in this section excludes any refund or other remedy that SignDot is required to provide under applicable law, or any remedy expressly agreed by SignDot in writing.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">05</span> How to Request a Refund</h2>
+            <p>To request a refund, contact SignDot at <a href="tel:9182241037"><strong>9182241037</strong></a>.</p>
+            <p>Please provide the following information so we can identify and review your order:</p>
+            <ul class="terms-list">
+                <li>Your name.</li>
+                <li>The phone number used when placing the order.</li>
+                <li>Your order or transaction reference, if available.</li>
+                <li>The amount paid.</li>
+                <li>A brief explanation that the order was not delivered.</li>
+            </ul>
+            <p>Please submit the request within the applicable 2-hour window described above.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">06</span> Refund Review and Verification</h2>
+            <p>SignDot will review the request and may verify the order, payment, communications, and delivery status.</p>
+            <p>We may contact you if additional information is reasonably required to verify the request.</p>
+            <p>If the order is confirmed as undelivered and the request is eligible under this policy, SignDot will process a refund for 100% of the amount paid for that undelivered order, subject to applicable law.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">07</span> Refund Processing</h2>
+            <p>Approved refunds will be issued using the original payment method wherever reasonably possible.</p>
+            <p>The time it takes for the refunded amount to appear in your account may depend on your bank, card issuer, payment provider, or other financial institution. SignDot cannot control processing times after the refund has been initiated by the relevant payment provider.</p>
+            <p>If a refund cannot reasonably be sent through the original payment method, SignDot may contact you to arrange another lawful method.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">08</span> Duplicate or Incorrect Payments</h2>
+            <p>If you believe you have been charged more than once for the same order or have made an incorrect payment, contact SignDot at <a href="tel:9182241037"><strong>9182241037</strong></a> with the relevant transaction details.</p>
+            <p>SignDot will review the payment records and address verified duplicate or excess payments in accordance with applicable law and payment-provider procedures.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">09</span> Customer Responsibilities</h2>
+            <p>To help us review a refund request, you are responsible for providing accurate order and payment information and responding to reasonable requests for clarification.</p>
+            <p>Providing false or misleading information may delay the review or result in the request being rejected where permitted by law.</p>
+        </article>
+
+        <article class="terms-section">
+            <h2><span class="sec-num">10</span> Changes to This Refund Policy</h2>
+            <p>SignDot may update this Refund Policy from time to time. The updated policy will be published on the website with a revised effective date.</p>
+            <p>The policy applicable to an order will be determined in accordance with applicable law and the terms communicated when the order was placed.</p>
+        </article>
+
+        <div class="contact-box">
+            <h2>11. Contact Us for Refunds</h2>
+            <p>For refund requests or questions about this Refund Policy, contact our team directly:</p>
+            <a class="contact-btn" href="tel:9182241037">
+                <span>Call or Message: 9182241037</span>
+                <span>↗</span>
+            </a>
+        </div>
+
+        <div class="legal-nav-bar">
+            <a class="legal-nav-pill" href="terms-and-conditions.html">Terms of Service</a>
+            <a class="legal-nav-pill" href="privacy-and-policy.html">Privacy Policy</a>
+            <a class="legal-nav-pill active" href="refund-policy.html">Refund Policy</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div>© <span id="year"></span> SignDot Studio. All rights reserved.</div>
+        <div>Designed around your name.</div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SignDot — Complete Your Order</title>
+  <!-- Cashfree JS SDK v3 -->
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+  <style>
+    :root {
+      --blue: #173bdc;
+      --lime: #c9f36b;
+      --ink: #17213f;
+      --muted: #67718b;
+      --paper: #f5f6f8;
+      --line: #e2e6ef
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink)
+    }
+
+    body {
+      background: var(--paper)
+    }
+
+    header {
+      height: 88px;
+      background: linear-gradient(100deg, #fff, #f2f5ff);
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(24px, 5.5vw, 58px);
+      gap: 34px
+    }
+
+    .back {
+      font-size: 35px;
+      line-height: 1;
+      color: #151515;
+      text-decoration: none
+    }
+
+    .logo {
+      font-size: clamp(30px, 4vw, 39px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: #111;
+      text-decoration: none
+    }
+
+    .logo span {
+      color: #2345e8
+    }
+
+    .logo sup {
+      font-size: 11px;
+      letter-spacing: 0;
+      vertical-align: top;
+      margin-left: 2px
+    }
+
+    .menu {
+      margin-left: auto;
+      font-size: 34px;
+      color: #111;
+      line-height: 1
+    }
+
+    .hero {
+      background: radial-gradient(circle at 100% 0%, rgba(100, 119, 255, .28), transparent 27%), linear-gradient(120deg, #1238c8, #153ddd 60%, #0d35c5);
+      color: #f7f8ff;
+      padding: 72px 24px 70px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 0 24px 24px
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1.5px solid rgba(153, 164, 255, .5);
+      border-radius: 50%;
+      right: -170px;
+      top: -150px
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      z-index: 1
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 52px);
+      line-height: 1.13;
+      margin: 0 0 12px;
+      font-weight: 700;
+      letter-spacing: -1.5px
+    }
+
+    .subtitle {
+      font-size: clamp(18px, 3vw, 27px);
+      line-height: 1.45;
+      color: #dce4ff;
+      margin: 0
+    }
+
+    .subtitle em {
+      font-family: Georgia, serif;
+      color: var(--lime);
+      font-weight: 700
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 70px
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: -1px;
+      position: relative;
+      z-index: 2
+    }
+
+    .plan {
+      appearance: none;
+      text-align: left;
+      width: 100%;
+      font: inherit;
+      background: #fff;
+      border: 1px solid #edf0f5;
+      border-radius: 20px;
+      padding: 30px 32px 27px;
+      box-shadow: 0 12px 30px rgba(18, 35, 86, .045);
+      min-height: 360px;
+      color: var(--ink);
+      cursor: pointer;
+      transition: border-color .18s, box-shadow .18s, transform .18s
+    }
+
+    .plan:hover {
+      transform: translateY(-2px)
+    }
+
+    .plan.selected {
+      border: 2px solid var(--lime);
+      padding: 29px 31px 26px;
+      background: linear-gradient(135deg, #fff, #f7ffeb);
+      box-shadow: 0 0 0 2px rgba(201, 243, 107, .12)
+    }
+
+    .plan-head {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .plan h2 {
+      font-size: 27px;
+      margin: 0;
+      font-weight: 650;
+      letter-spacing: -.5px
+    }
+
+    .popular {
+      font-size: 14px;
+      background: #e5f8b7;
+      color: #17213f;
+      padding: 6px 12px;
+      border-radius: 9px;
+      white-space: nowrap
+    }
+
+    .radio {
+      margin-left: auto;
+      width: 31px;
+      height: 31px;
+      border: 3px solid #d3d7df;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center
+    }
+
+    .selected .radio {
+      border-color: #2454e8;
+      background: #2454e8
+    }
+
+    .selected .radio:after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff
+    }
+
+    .plan-desc {
+      font-size: 19px;
+      margin: 11px 0 17px;
+      color: #303b57
+    }
+
+    .price {
+      font-size: 43px;
+      line-height: 1.1;
+      font-weight: 750;
+      letter-spacing: -1px;
+      color: #111;
+      margin: 0 0 23px
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 15px;
+      font-size: 19px;
+      color: #303b57
+    }
+
+    .features li {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start
+    }
+
+    .check {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1;
+      color: #182747
+    }
+
+    .order-card {
+      background: rgba(255, 255, 255, .97);
+      border-radius: 28px;
+      margin-top: 28px;
+      padding: 34px 32px 30px;
+      box-shadow: 0 14px 36px rgba(20, 35, 75, .04)
+    }
+
+    .order-card h2 {
+      font-size: 29px;
+      margin: 0 0 8px;
+      font-weight: 650;
+      letter-spacing: -.6px
+    }
+
+    .selected-summary {
+      color: #69738b;
+      font-size: 16px;
+      margin: 0 0 24px
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px
+    }
+
+    label {
+      display: block;
+      font-size: 18px;
+      color: #303b57;
+      margin-bottom: 9px
+    }
+
+    .field.full {
+      grid-column: 1/-1
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1.5px solid #dfe3eb;
+      border-radius: 14px;
+      background: #fff;
+      padding: 18px 21px;
+      font: inherit;
+      font-size: 19px;
+      color: #17213f;
+      outline: none;
+      min-height: 68px
+    }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #969eaf
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #2454e8;
+      box-shadow: 0 0 0 3px rgba(36, 84, 232, .10)
+    }
+
+    .phone {
+      display: flex
+    }
+
+    .country {
+      width: 88px;
+      flex: 0 0 88px;
+      border: 1.5px solid #dfe3eb;
+      border-right: 0;
+      border-radius: 14px 0 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      font-size: 18px
+    }
+
+    .phone input {
+      border-radius: 0 14px 14px 0
+    }
+
+    .pay {
+      width: 100%;
+      min-height: 91px;
+      border: 0;
+      border-radius: 100px;
+      background: var(--lime);
+      color: #101010;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 23px;
+      font-size: 29px;
+      font-weight: 650;
+      cursor: pointer;
+      margin-top: 30px;
+      box-shadow: 0 7px 12px rgba(80, 120, 20, .07)
+    }
+
+    .lock {
+      font-size: 27px
+    }
+
+    .arrow {
+      font-size: 39px;
+      font-weight: 400;
+      line-height: 1
+    }
+
+    .secure {
+      text-align: center;
+      color: #8790a3;
+      font-size: 19px;
+      margin: 28px 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px
+    }
+
+    .shield {
+      font-size: 28px;
+      color: #65718a
+    }
+
+    .trust-title {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #7584b0;
+      font: 500 16px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: 2px;
+      margin: 42px 32px 24px
+    }
+
+    .trust-title:before,
+    .trust-title:after {
+      content: "";
+      height: 1px;
+      background: #cbd3e4;
+      flex: 1
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0 18px
+    }
+
+    .trust-item {
+      text-align: center;
+      border-right: 1px solid #e0e5ef;
+      padding: 0 12px;
+      color: #7180a8;
+      font-size: 17px;
+      line-height: 1.25
+    }
+
+    .trust-item:last-child {
+      border: 0
+    }
+
+    .trust-icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 9px
+    }
+
+    .notice {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 12px;
+      background: #f0f7dc;
+      color: #263b0d;
+      line-height: 1.5;
+      font-size: 16px;
+      font-weight: 500
+    }
+
+    .notice.show {
+      display: block
+    }
+
+    .notice.error {
+      display: block;
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1.5px solid #fecaca
+    }
+
+    .notice.loading {
+      display: block;
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1.5px solid #bfdbfe
+    }
+
+    .pay:disabled {
+      opacity: 0.75;
+      cursor: not-allowed
+    }
+
+    @keyframes cf-spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @media(max-width:700px) {
+      header {
+        height: 78px;
+        gap: 24px
+      }
+
+      .hero {
+        padding: 52px 20px 58px
+      }
+
+      .plans {
+        grid-template-columns: 1fr;
+        gap: 16px
+      }
+
+      .plan,
+      .plan.selected {
+        min-height: 0;
+        padding: 24px
+      }
+
+      .plan h2 {
+        font-size: 24px
+      }
+
+      .plan-desc {
+        font-size: 17px
+      }
+
+      .price {
+        font-size: 38px
+      }
+
+      .features {
+        font-size: 17px;
+        gap: 12px
+      }
+
+      .order-card {
+        padding: 26px 20px;
+        border-radius: 22px;
+        margin-top: 20px
+      }
+
+      .order-card h2 {
+        font-size: 25px
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px
+      }
+
+      .field.full {
+        grid-column: auto
+      }
+
+      label {
+        font-size: 16px
+      }
+
+      input,
+      textarea {
+        font-size: 17px;
+        min-height: 62px;
+        padding: 16px
+      }
+
+      .pay {
+        min-height: 75px;
+        font-size: 23px
+      }
+
+      .secure {
+        font-size: 15px
+      }
+
+      .trust-title {
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin: 34px 0 20px;
+        gap: 12px
+      }
+
+      .trust {
+        padding: 0
+      }
+
+      .trust-item {
+        font-size: 12px;
+        padding: 0 5px
+      }
+
+      .trust-icon {
+        font-size: 26px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header><a class="back" href="javascript:history.back()" aria-label="Go back">←</a><a class="logo" href="index.html"
+      aria-label="SignDot home">sign<span>dot</span><sup>®</sup></a><span class="menu" aria-hidden="true">☰</span>
+  </header>
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Complete Your Order</h1>
+      <p class="subtitle">You're one step away from a signature<br>that feels like <em>you.</em></p>
+    </div>
+  </section>
+  <main style="padding: 40px;">
+    <section class="plans" aria-label="Choose a signature plan">
+      <button class="plan" type="button" data-plan="standard" aria-pressed="false">
+        <div class="plan-head">
+          <h2>Standard</h2><span class="radio" aria-hidden="true"></span>
+        </div>
+        <p class="plan-desc">Perfect for personal use</p>
+        <p class="price">₹999</p>
+        <ul class="features">
+          <li><span class="check">✓</span>1 Custom Signature Design</li>
+          <li><span class="check">✓</span>High-Resolution Files</li>
+          <li><span class="check">✓</span>Use Anywhere</li>
+          <li><span class="check">✓</span>2 Revisions</li>
+        </ul>
+      </button>
+      <button class="plan selected" type="button" data-plan="premium" aria-pressed="true">
+        <div class="plan-head">
+          <h2>Premium</h2><span class="popular">Most Popular</span><span class="radio" aria-hidden="true"></span>
+        </div>
+        <p class="plan-desc">For professionals &amp; creators</p>
+        <p class="price">₹1,499</p>
+        <ul class="features">
+          <li><span class="check">✓</span>3 Custom Signature Designs</li>
+          <li><span class="check">✓</span>High-Resolution Files</li>
+          <li><span class="check">✓</span>Source Files (Vector)</li>
+          <li><span class="check">✓</span>Use Anywhere</li>
+          <li><span class="check">✓</span>Unlimited Revisions</li>
+        </ul>
+      </button>
+    </section>
+    <section class="order-card" id="order">
+      <h2>Your Details</h2>
+      <p class="selected-summary" id="summary">Selected: Premium — ₹1,499</p>
+      <form id="detailsForm">
+        <div class="form-grid">
+          <div class="field full"><label for="name">Full Name</label><input id="name" name="name" type="text"
+              autocomplete="name" placeholder="Enter your full name" required></div>
+          <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email"
+              autocomplete="email" placeholder="name@example.com" required></div>
+          <div class="field"><label for="mobile">Mobile Number</label>
+            <div class="phone">
+              <div class="country">+91 ▾</div><input id="mobile" name="mobile" type="tel" inputmode="numeric"
+                autocomplete="tel-national" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit number" required>
+            </div>
+          </div>
+          <div class="field full"><label for="notes">Notes (Optional)</label><textarea id="notes" name="notes"
+              placeholder="Preferred style, name spelling, or special requests?"></textarea></div>
+        </div>
+        <button class="pay" type="submit"><span class="lock">▣</span><span id="payText">Pay ₹1,499</span><span
+            class="arrow">→</span></button>
+        <p class="secure"><span class="shield">⬟</span>Secure and encrypted payments</p>
+        <div id="notice" class="notice" role="status"></div>
+      </form>
+    </section>
+    <div class="trust-title">TRUSTED BY THOUSANDS</div>
+    <section class="trust" aria-label="Trust features">
+      <div class="trust-item"><span class="trust-icon">♢</span>Secure<br>Payments</div>
+      <div class="trust-item"><span class="trust-icon">✥</span>100%<br>Authentic</div>
+      <div class="trust-item"><span class="trust-icon">ϟ</span>Instant<br>Access</div>
+      <div class="trust-item"><span class="trust-icon">♡</span>Dedicated<br>Support</div>
+    </section>
+  </main>
+  <script>
+    const BACKEND_PAYMENT_ENDPOINT = 'https://signdot.chvinay8288.workers.dev/payment/create';
+
+    const plans = {
+      standard: { label: "Standard", price: 999, display: "₹999" },
+      premium: { label: "Premium", price: 1499, display: "₹1,499" }
+    };
+    let selected = "premium";
+
+    const cards = [...document.querySelectorAll(".plan")];
+    const notice = document.getElementById("notice");
+    const payBtn = document.querySelector(".pay");
+    const payText = document.getElementById("payText");
+
+    let cashfreeInstance = null;
+    function getCashfree() {
+      if (!cashfreeInstance && typeof Cashfree !== 'undefined') {
+        cashfreeInstance = Cashfree({ mode: "production" });
+      }
+      return cashfreeInstance;
+    }
+
+    function choosePlan(key) {
+      if (!plans[key]) key = "premium";
+      selected = key;
+      cards.forEach(card => {
+        const active = card.dataset.plan === key;
+        card.classList.toggle("selected", active);
+        card.setAttribute("aria-pressed", String(active));
+      });
+      document.getElementById("summary").textContent = `Selected: ${plans[key].label} — ${plans[key].display}`;
+      if (payText) payText.textContent = `Pay ${plans[key].display}`;
+      hideNotice();
+    }
+
+    cards.forEach(card => card.addEventListener("click", () => choosePlan(card.dataset.plan)));
+
+    // Read ?plan= from URL
+    try {
+      const param = new URLSearchParams(window.location.search).get('plan');
+      if (param && plans[param.toLowerCase()]) {
+        choosePlan(param.toLowerCase());
+      }
+    } catch (e) {
+      console.warn("Could not parse plan param", e);
+    }
+
+    function showNotice(msg, type = 'info') {
+      notice.textContent = msg;
+      notice.className = 'notice show';
+      if (type === 'error') notice.classList.add('error');
+      if (type === 'loading') notice.classList.add('loading');
+    }
+
+    function hideNotice() {
+      notice.className = 'notice';
+      notice.textContent = '';
+    }
+
+    document.getElementById("detailsForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      if (!this.reportValidity()) return;
+
+      const data = Object.fromEntries(new FormData(this).entries());
+      const name = (data.name || '').trim();
+      const email = (data.email || '').trim();
+      const phone = (data.mobile || '').trim();
+      const amount = plans[selected].price;
+
+      if (!name) {
+        showNotice("Please enter your full name.", "error");
+        document.getElementById("name").focus(); return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showNotice("Please enter a valid email address.", "error");
+        document.getElementById("email").focus(); return;
+      }
+      if (!phone || phone.length !== 10 || !/^\d{10}$/.test(phone)) {
+        showNotice("Please enter a valid 10-digit mobile number.", "error");
+        document.getElementById("mobile").focus(); return;
+      }
+
+      // Loading state
+      const originalHtml = payBtn.innerHTML;
+      payBtn.disabled = true;
+      payBtn.innerHTML = `
+      <svg style="width:24px;height:24px;animation:cf-spin 0.8s linear infinite;margin-right:12px;display:inline-block;vertical-align:middle" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" opacity="0.25"></circle>
+        <path fill="currentColor" opacity="0.85" d="M4 12a8 8 0 018-8v8H4z"></path>
+      </svg>
+      <span>Connecting to Cashfree...</span>
+    `;
+      showNotice("Initiating secure payment session...", "loading");
+
+      try {
+        const res = await fetch(BACKEND_PAYMENT_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, phone, amount })
+        });
+
+        const resData = await res.json().catch(() => null);
+
+        if (res.ok && resData && resData.success && resData.payment_session_id) {
+          showNotice("Payment session verified! Opening Cashfree portal...", "loading");
+          const cf = getCashfree();
+          if (cf) {
+            cf.checkout({
+              paymentSessionId: resData.payment_session_id,
+              redirectTarget: "_self"
+            });
+          } else {
+            showNotice("Cashfree SDK is initializing. Please click Pay again in a moment.", "error");
+            payBtn.disabled = false;
+            payBtn.innerHTML = originalHtml;
+          }
+        } else {
+          const errMsg = resData?.error || resData?.message || `Payment server returned status ${res.status}.`;
+          showNotice(errMsg, "error");
+          payBtn.disabled = false;
+          payBtn.innerHTML = originalHtml;
+        }
+      } catch (err) {
+        console.error("Payment initiation error:", err);
+        showNotice("Could not connect to payment gateway. Please check your connection and try again.", "error");
+        payBtn.disabled = false;
+        payBtn.innerHTML = originalHtml;
+      }
+    });
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2355222611939244');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2355222611939244&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+</body>
+
+</html>
